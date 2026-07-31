@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>音逢｜中日谐音文化小志</title>
+  <meta name="description" content="在声音里遇见另一种语言：收集中日之间有趣的谐音、音读与文化回声。">
+  <meta property="og:title" content="音逢｜中日谐音文化小志">
+  <meta property="og:description" content="在声音里，遇见另一种语言。">
+  <meta property="og:image" content="/og.png">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <nav class="nav shell" aria-label="主导航">
+      <a class="brand" href="#top"><span class="brand-mark">音</span><span>音逢<small>おとあい</small></span></a>
+      <div class="nav-links"><a href="#collection">谐音词集</a><a href="#about">关于音逢</a><a class="nav-cta" href="#submit">分享发现</a></div>
+    </nav>
+
+    <section class="hero shell" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> 中日谐音文化小志</p>
+        <h1>在声音里，<br>遇见<span>另一种语言</span></h1>
+        <p class="hero-intro">汉字越过海洋，在日语里留下新的读音。我们收集那些一听便会心一笑的偶遇，也记录声音背后的文化来路。</p>
+        <div class="hero-actions"><a class="primary-button" href="#collection">开始探索 <span>↓</span></a><button class="text-button" id="random">换一个今日发现</button></div>
+      </div>
+      <article class="featured-card" aria-label="今日谐音">
+        <div class="paper-grain"></div>
+        <p class="card-kicker">今日谐音 <span id="daily-number">NO. 001</span></p>
+        <div class="sound-pair">
+          <div><small>中文原句</small><h2 id="daily-chinese">忽逢桃花林</h2></div>
+          <div class="echo-line" aria-hidden="true"><i></i><b>〜</b><i></i></div>
+          <div class="kana"><small>假名拟音</small><h3 id="daily-kana">ふふん たお はりん</h3><p id="daily-romaji">fu fun tao ha rin</p></div>
+        </div>
+        <div class="card-footer">
+          <div><small>声音相似度</small><strong id="daily-score">92<sup>%</sup></strong></div>
+          <button class="sound-button speak" data-kana="ふふん たお はりん"><span>▶</span> 听听声音</button>
+        </div>
+        <span class="seal" aria-hidden="true">偶<br>然</span>
+      </article>
+    </section>
+
+    <section class="manifesto" id="about">
+      <div class="shell manifesto-grid">
+        <p class="vertical-note">谐音不是翻译，是一次声音的偶遇</p>
+        <blockquote>“忽逢桃花林”念作<strong>ふふん たお はりん</strong>时，一千六百年前的桃花，仿佛开进了另一种语言。</blockquote>
+        <div class="manifesto-copy"><p>这里不试图证明两种语言“本来一样”，而是把巧合、音读、音译和个人联想分门记录。</p><p>每个词条都是一扇小门：从好玩的声音出发，走向汉字传播、语音变化和文学记忆。</p></div>
+      </div>
+    </section>
+
+    <section class="collection shell" id="collection">
+      <header class="section-heading">
+        <div><p class="eyebrow"><span></span> SOUND COLLECTION</p><h2>谐音词集</h2></div>
+        <p>收录 6 个声音偶遇 · 持续生长中</p>
+      </header>
+      <div class="filter-bar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" placeholder="搜索中文、假名或出处…" aria-label="搜索谐音词条"></label>
+        <div class="category-tabs" aria-label="按类别筛选">
+          <button class="active" data-category="全部">全部</button><button data-category="古文">古文</button><button data-category="诗词">诗词</button><button data-category="日常">日常</button><button data-category="地名">地名</button>
+        </div>
+      </div>
+      <div class="entry-grid" id="entries"></div>
+    </section>
+
+    <section class="submit-section" id="submit">
+      <div class="shell submit-grid">
+        <div>
+          <p class="eyebrow light"><span></span> CONTRIBUTE</p><h2>你也听见了吗？</h2>
+          <p>语言的趣味来自每个人的耳朵。写下你发现的中文与日语谐音，让这个声音小志继续生长。</p>
+          <div class="submit-note"><span>注</span>投稿会暂存在你的浏览器中。这是一版学习用演示，未来可接入审核与公开词库。</div>
+        </div>
+        <form id="idea-form">
+          <label>中文原句<input name="chinese" required placeholder="例如：忽逢桃花林"></label>
+          <label>日语假名 / 拟音<input name="kana" required placeholder="例如：ふふん たお はりん"></label>
+          <label>出处或你的说明<textarea name="note" rows="3" placeholder="它为什么让你觉得相像？"></textarea></label>
+          <button class="submit-button" type="submit">提交这次偶遇 <span>→</span></button>
+          <p class="success" id="success" role="status" hidden>已收下这次声音偶遇。谢谢你的耳朵！</p>
+        </form>
+      </div>
+    </section>
+    <footer class="footer shell"><a class="brand" href="#top"><span class="brand-mark">音</span><span>音逢</span></a><p>一个关于汉字、假名与声音联想的学习项目。</p><a href="#top">回到开头 ↑</a></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
