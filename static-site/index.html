@@ -7,15 +7,16 @@
   <meta name="description" content="在声音里遇见另一种语言：收集中日之间有趣的谐音、音读与文化回声。">
   <meta property="og:title" content="音逢｜中日谐音文化小志">
   <meta property="og:description" content="在声音里，遇见另一种语言。">
-  <meta property="og:image" content="/og.png">
-  <link rel="icon" href="/favicon.svg">
-  <link rel="stylesheet" href="/style.css">
+  <meta property="og:image" content="og.png">
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("otowai-theme")||"light"}catch(e){}</script>
 </head>
 <body>
   <main>
     <nav class="nav shell" aria-label="主导航">
       <a class="brand" href="#top"><span class="brand-mark">音</span><span>音逢<small>おとあい</small></span></a>
-      <div class="nav-links"><a href="#collection">谐音词集</a><a href="#about">关于音逢</a><a class="nav-cta" href="#submit">分享发现</a></div>
+      <div class="nav-links"><a href="#collection">谐音词集</a><a href="#maker">空耳制造器</a><a href="#about">关于音逢</a><a class="nav-cta" href="#submit">分享发现</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false"><span aria-hidden="true">◐</span><b>深色</b></button></div>
     </nav>
 
     <section class="hero shell" id="top">
@@ -23,7 +24,11 @@
         <p class="eyebrow"><span></span> 中日谐音文化小志</p>
         <h1>在声音里，<br>遇见<span>另一种语言</span></h1>
         <p class="hero-intro">汉字越过海洋，在日语里留下新的读音。我们收集那些一听便会心一笑的偶遇，也记录声音背后的文化来路。</p>
-        <div class="hero-actions"><a class="primary-button" href="#collection">开始探索 <span>↓</span></a><button class="text-button" id="random">换一个今日发现</button></div>
+        <div class="hero-actions">
+          <a class="primary-button" href="#collection">开始探索 <span>↓</span></a>
+          <a class="text-button" href="#maker">去空耳制造器</a>
+          <button class="text-button" id="random">换一个今日发现</button>
+        </div>
       </div>
       <article class="featured-card" aria-label="今日谐音">
         <div class="paper-grain"></div>
@@ -31,11 +36,11 @@
         <div class="sound-pair">
           <div><small>中文原句</small><h2 id="daily-chinese">忽逢桃花林</h2></div>
           <div class="echo-line" aria-hidden="true"><i></i><b>〜</b><i></i></div>
-          <div class="kana"><small>假名拟音</small><h3 id="daily-kana">ふふん たお はりん</h3><p id="daily-romaji">fu fun tao ha rin</p></div>
+          <div class="kana"><small>假名拟音</small><h3 id="daily-kana">ふーふん たお はりん</h3><p id="daily-romaji">fu fun tao ha rin</p></div>
         </div>
         <div class="card-footer">
           <div><small>声音相似度</small><strong id="daily-score">92<sup>%</sup></strong></div>
-          <button class="sound-button speak" data-kana="ふふん たお はりん"><span>▶</span> 听听声音</button>
+          <button class="sound-button speak" data-kana="ふーふん たお はりん"><span>▶</span> 听听声音</button>
         </div>
         <span class="seal" aria-hidden="true">偶<br>然</span>
       </article>
@@ -44,7 +49,7 @@
     <section class="manifesto" id="about">
       <div class="shell manifesto-grid">
         <p class="vertical-note">谐音不是翻译，是一次声音的偶遇</p>
-        <blockquote>“忽逢桃花林”念作<strong>ふふん たお はりん</strong>时，一千六百年前的桃花，仿佛开进了另一种语言。</blockquote>
+        <blockquote>“忽逢桃花林”念作<strong>ふーふん たお はりん</strong>时，一千六百年前的桃花，仿佛开进了另一种语言。</blockquote>
         <div class="manifesto-copy"><p>这里不试图证明两种语言“本来一样”，而是把巧合、音读、音译和个人联想分门记录。</p><p>每个词条都是一扇小门：从好玩的声音出发，走向汉字传播、语音变化和文学记忆。</p></div>
       </div>
     </section>
@@ -63,6 +68,88 @@
       <div class="entry-grid" id="entries"></div>
     </section>
 
+    <section class="maker-section" id="maker">
+      <div class="shell section-heading">
+        <div>
+          <p class="eyebrow"><span></span> VOICE LAB</p>
+          <h2>空耳制造器</h2>
+        </div>
+        <p>输入你自拟的词句（中文/日文都可以），生成 1 句对应的日文音感表达。</p>
+      </div>
+        <div class="shell maker-grid">
+          <section class="maker-config" id="maker-config" hidden>
+            <div class="maker-config-head">
+              <div>
+                <h3>映射规则编辑</h3>
+                <p>在这里改规则，下面生成器会立刻按你填的内容生成；修改会自动保存到浏览器。</p>
+              </div>
+              <button type="button" id="maker-reset-mappings">恢复默认</button>
+            </div>
+            <label class="maker-mapping-search" for="maker-mapping-search">
+              <span>搜索已有字词对应的假名</span>
+              <input id="maker-mapping-search" type="search" placeholder="输入汉字、词组、假名或发音…" autocomplete="off">
+            </label>
+
+            <article class="mapping-card">
+              <h4>同音字组（多字用“,”分隔）</h4>
+              <p class="mapping-legend"><span class="legend-same">已有生成字组</span><span class="legend-new">新增音组待校对</span></p>
+              <div class="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>音（拼音）</th>
+                      <th>假名</th>
+                      <th>发音</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody id="phonetic-mapping-rows"></tbody>
+                </table>
+              </div>
+              <button type="button" id="add-phonetic-row">新增同音字组</button>
+            </article>
+
+          </section>
+        <button type="button" class="maker-admin-toggle" id="maker-admin-toggle" aria-controls="maker-config" aria-expanded="false">管理映射</button>
+        <form class="maker-form" id="maker-form">
+          <label>你的词句<textarea id="maker-input" rows="5" placeholder="例如：忽逢桃花林，人生若只如初见"></textarea></label>
+          <div class="maker-examples" aria-label="混合字库测试词句">
+            <span>快速试句</span>
+            <button class="maker-examples-refresh" id="maker-examples-refresh" type="button" aria-label="刷新快速试句">↻ 刷新</button>
+            <div id="maker-example-list"></div>
+          </div>
+          <div class="maker-actions mode-actions" role="group" aria-label="生成模式">
+            <label><input type="radio" id="maker-mode-syllable" name="maker-mode" checked /> 纯音节（学习版）</label>
+            <label><input type="radio" id="maker-mode-semantic" name="maker-mode" disabled /> 意译映射（已停用）</label>
+          </div>
+          <div class="maker-actions">
+            <button type="button" id="maker-generate">生成对应句子</button>
+            <button type="button" id="maker-clear">清空</button>
+          </div>
+        </form>
+        <div class="maker-output" id="maker-output">
+          <div class="empty-state">
+            <span>音</span>
+            <h3>先写一句，你将听见它的另一种读法</h3>
+      <p>支持中文、日文及符号混合输入；每个字符都会按相似音节重写。</p>
+          </div>
+        </div>
+        <aside class="maker-history" id="maker-history">
+          <div>
+            <h3>最近生成历史</h3>
+            <div class="maker-history-meta">
+              <p>暂无记录，首次生成后会自动保存到本地。</p>
+              <div class="maker-history-controls">
+                <label><input type="checkbox" id="maker-limit-3"> 只看最近3条</label>
+                <button type="button" id="maker-clear-history">清空历史</button>
+              </div>
+            </div>
+          </div>
+          <ol></ol>
+        </aside>
+      </div>
+    </section>
+
     <section class="submit-section" id="submit">
       <div class="shell submit-grid">
         <div>
@@ -72,7 +159,7 @@
         </div>
         <form id="idea-form">
           <label>中文原句<input name="chinese" required placeholder="例如：忽逢桃花林"></label>
-          <label>日语假名 / 拟音<input name="kana" required placeholder="例如：ふふん たお はりん"></label>
+          <label>日语假名 / 拟音<input name="kana" required placeholder="例如：ふーふん たお はりん"></label>
           <label>出处或你的说明<textarea name="note" rows="3" placeholder="它为什么让你觉得相像？"></textarea></label>
           <button class="submit-button" type="submit">提交这次偶遇 <span>→</span></button>
           <p class="success" id="success" role="status" hidden>已收下这次声音偶遇。谢谢你的耳朵！</p>
@@ -81,6 +168,7 @@
     </section>
     <footer class="footer shell"><a class="brand" href="#top"><span class="brand-mark">音</span><span>音逢</span></a><p>一个关于汉字、假名与声音联想的学习项目。</p><a href="#top">回到开头 ↑</a></footer>
   </main>
-  <script src="/app.js"></script>
+  <script src="pinyin-data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

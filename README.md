@@ -92,6 +92,26 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 - `npm test`: build the starter and verify its rendered loading skeleton
 - `npm run db:generate`: generate Drizzle migrations after schema changes
 
+### 学习版快速预览（不依赖 `npm install` 的情况下）
+
+如果你现在只想先跑静态页面，可直接执行：
+
+```bash
+node scripts/build-static.mjs
+python3 -m http.server 4174 --bind 127.0.0.1 --directory dist/client
+```
+
+然后在浏览器打开 `http://127.0.0.1:4174/`。
+
+如果你只能用 `pnpm`，可先确认网络能访问 registry：
+
+```bash
+pnpm config set registry https://registry.npmjs.org
+pnpm install
+```
+
+`ENOTFOUND` 一般是 DNS / 网络出问题，不是代码问题。
+
 ## Learn More
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
