@@ -216,6 +216,7 @@ body::before {
   display: grid;
   gap: 18px;
 }
+.maker-config[hidden] { display: none !important; }
 
 .maker-admin-toggle { display: none; }
 .maker-admin-toggle:not([hidden]) { display: inline-flex; }
