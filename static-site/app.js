@@ -36,7 +36,7 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-26", chars: "西,习,喜,细", kana: "し", romaji: "xi", note: "同音合并：xi 不区分声调，共用 /し/。" },
   { id: "default-27", chars: "爱", kana: "あい", romaji: "ai", note: "爱（ai）可直接转写为 /ai/。" },
   { id: "default-28", chars: "有,右,又,友", kana: "ゆう", romaji: "you", note: "同音合并：you 不区分声调，共用 /ゆう/。" },
-  { id: "default-29", chars: "家", kana: "か", romaji: "jia", note: "家（jia）可用 /ka/ 近似。" },
+  { id: "default-29", chars: "家", kana: "じあ", romaji: "jia", note: "按用户校对：jia 统一映射为 /じあ/。" },
   { id: "default-30", chars: "国", kana: "ごく", romaji: "guo", note: "国（guo）近似 /goku/ 的收口。" },
   { id: "default-31", chars: "学", kana: "がく", romaji: "xue", note: "学（xue）在借音逻辑里常见为 /gaku/。" },
   { id: "default-73", chars: "同", kana: "と", romaji: "tong", note: "同（tong）使用清音 /と/。" },
@@ -348,8 +348,8 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-345", chars: "货", kana: "ほ", romaji: "huo", note: "第二批第2轮生字：按 huo 音组复用 / ほ /。", source: "generated", soundStatus: "same" },
   { id: "default-346", chars: "祸,获,惑,霍,豁", kana: "ほ", romaji: "huo", note: "第二批第3轮生字：按 huo 音组复用 / ほ /。", source: "generated", soundStatus: "same" },
   { id: "default-347", chars: "极,级,几,己,技,际,计,集,急,基,寄,既", kana: "じ", romaji: "ji", note: "第二批第3轮生字：按 ji 音组复用 / じ /。", source: "generated", soundStatus: "same" },
-  { id: "default-348", chars: "价,假,架", kana: "か", romaji: "jia", note: "第二批第3轮生字：按 jia 音组复用 / か /。", source: "generated", soundStatus: "same" },
-  { id: "default-349", chars: "甲,嫁,佳,夹,颊,贾,加", kana: "か", romaji: "jia", note: "第二批第4轮生字：按 jia 音组复用 / か /。", source: "generated", soundStatus: "same" },
+  { id: "default-348", chars: "价,假,架", kana: "じあ", romaji: "jia", note: "按用户校对：jia 音组复用 /じあ/。", source: "generated", soundStatus: "same" },
+  { id: "default-349", chars: "甲,嫁,佳,夹,颊,贾,加", kana: "じあ", romaji: "jia", note: "按用户校对：jia 音组复用 /じあ/。", source: "generated", soundStatus: "same" },
   { id: "default-350", chars: "减,检,剑,坚,尖,肩,简,监,剪,舰,键", kana: "けん", romaji: "jian", note: "第二批第4轮生字：按 jian 音组复用 / けん /。", source: "generated", soundStatus: "same" },
   { id: "default-351", chars: "将,浆", kana: "じゃん", romaji: "jiang", note: "第二批第4轮生字：按 jiang 音组复用 / じゃん /。", source: "generated", soundStatus: "same" },
   { id: "default-352", chars: "僵,酱,疆,姜,匠", kana: "じゃん", romaji: "jiang", note: "第二批第5轮生字：按 jiang 音组复用 / じゃん /。", source: "generated", soundStatus: "same" },
@@ -510,6 +510,7 @@ const DEFAULT_PHRASE_ROWS = [
 const MAKER_PHONETIC_ROWS_KEY = "otowai-maker-phonetic-rows";
 const MAKER_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-sentence-audit-1";
 const MING_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-ming-min-1";
+const JIA_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-jia-jia-1";
 const MAKER_PHRASE_ROWS_KEY = "otowai-maker-phrase-rows";
 
 let phoneticRows = mergeEditablePhoneticRows(DEFAULT_PHONETIC_ROWS.map((item) => ({ ...item })));
@@ -791,6 +792,16 @@ function loadMappings() {
         }
       });
       localStorage.setItem(MING_MAPPING_CORRECTION_KEY, "done");
+    }
+    if (localStorage.getItem(JIA_MAPPING_CORRECTION_KEY) !== "done") {
+      parsedPhonetic.forEach((row) => {
+        if (row.romaji.trim().toLowerCase() === "jia") {
+          row.kana = "じあ";
+          row.note = "按用户校对：jia 统一映射为 /じあ/。";
+          row.manual = true;
+        }
+      });
+      localStorage.setItem(JIA_MAPPING_CORRECTION_KEY, "done");
     }
 
     if (localStorage.getItem(MAKER_MAPPING_CORRECTION_KEY) !== "done") {

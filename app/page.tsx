@@ -402,9 +402,9 @@ const DEFAULT_PHONETIC_ROWS: EditablePhoneticKanaRow[] = [
   {
     id: "default-29",
     chars: "家",
-    kana: "か",
+    kana: "じあ",
     romaji: "jia",
-    note: "家（jia）可用 /ka/ 近似。",
+    note: "按用户校对：jia 统一映射为 /じあ/。",
   },
   {
     id: "default-30",
@@ -991,8 +991,8 @@ const DEFAULT_PHONETIC_ROWS: EditablePhoneticKanaRow[] = [
   { id: "default-345", chars: "货", kana: "ほ", romaji: "huo", note: "第二批第2轮生字：按 huo 音组复用 / ほ /。", source: "generated", soundStatus: "same" },
   { id: "default-346", chars: "祸,获,惑,霍,豁", kana: "ほ", romaji: "huo", note: "第二批第3轮生字：按 huo 音组复用 / ほ /。", source: "generated", soundStatus: "same" },
   { id: "default-347", chars: "极,级,几,己,技,际,计,集,急,基,寄,既", kana: "じ", romaji: "ji", note: "第二批第3轮生字：按 ji 音组复用 / じ /。", source: "generated", soundStatus: "same" },
-  { id: "default-348", chars: "价,假,架", kana: "か", romaji: "jia", note: "第二批第3轮生字：按 jia 音组复用 / か /。", source: "generated", soundStatus: "same" },
-  { id: "default-349", chars: "甲,嫁,佳,夹,颊,贾,加", kana: "か", romaji: "jia", note: "第二批第4轮生字：按 jia 音组复用 / か /。", source: "generated", soundStatus: "same" },
+  { id: "default-348", chars: "价,假,架", kana: "じあ", romaji: "jia", note: "按用户校对：jia 音组复用 /じあ/。", source: "generated", soundStatus: "same" },
+  { id: "default-349", chars: "甲,嫁,佳,夹,颊,贾,加", kana: "じあ", romaji: "jia", note: "按用户校对：jia 音组复用 /じあ/。", source: "generated", soundStatus: "same" },
   { id: "default-350", chars: "减,检,剑,坚,尖,肩,简,监,剪,舰,键", kana: "けん", romaji: "jian", note: "第二批第4轮生字：按 jian 音组复用 / けん /。", source: "generated", soundStatus: "same" },
   { id: "default-351", chars: "将,浆", kana: "じゃん", romaji: "jiang", note: "第二批第4轮生字：按 jiang 音组复用 / じゃん /。", source: "generated", soundStatus: "same" },
   { id: "default-352", chars: "僵,酱,疆,姜,匠", kana: "じゃん", romaji: "jiang", note: "第二批第5轮生字：按 jiang 音组复用 / じゃん /。", source: "generated", soundStatus: "same" },
@@ -1176,6 +1176,7 @@ const DEFAULT_PHRASE_ROWS: EditablePhraseKanaRow[] = [
 const MAKER_PHONETIC_ROWS_KEY = "otowai-maker-phonetic-rows";
 const MAKER_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-sentence-audit-1";
 const MING_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-ming-min-1";
+const JIA_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-jia-jia-1";
 const MAKER_PHRASE_ROWS_KEY = "otowai-maker-phrase-rows";
 const MAKER_HISTORY_KEY = "otowai-maker-history";
 const MAKER_MODE_KEY = "otowai-maker-mode";
@@ -1767,6 +1768,16 @@ export default function Home() {
         }
       });
       window.localStorage.setItem(MING_MAPPING_CORRECTION_KEY, "done");
+    }
+    if (window.localStorage.getItem(JIA_MAPPING_CORRECTION_KEY) !== "done") {
+      parsedPhonetic.forEach((row) => {
+        if (row.romaji.trim().toLowerCase() === "jia") {
+          row.kana = "じあ";
+          row.note = "按用户校对：jia 统一映射为 /じあ/。";
+          row.manual = true;
+        }
+      });
+      window.localStorage.setItem(JIA_MAPPING_CORRECTION_KEY, "done");
     }
     if (window.localStorage.getItem(MAKER_MAPPING_CORRECTION_KEY) !== "done") {
       const correctedIds = new Set(["default-02", "default-18", "default-20", "default-26", "default-28", "default-35", "default-48", "default-63", "default-76", "default-99", "default-100", "default-101", "default-107", "default-110", "default-127", "default-133", "default-200"]);
