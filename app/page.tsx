@@ -1737,7 +1737,10 @@ export default function Home() {
     buildMakerSentence(input, variant, mode, activeKanaMap, phraseKanaMap, phraseKanaEntries, activePinyinKanaMap, activeKanaGroups);
 
   useEffect(() => {
-    setAdminAccess(new URLSearchParams(window.location.search).get("admin") === "1");
+    fetch("/api/admin-session", { credentials: "same-origin", cache: "no-store" })
+      .then((response) => response.ok ? response.json() : { isOwner: false })
+      .then((session) => setAdminAccess(session.isOwner === true))
+      .catch(() => setAdminAccess(false));
   }, []);
 
   useEffect(() => {

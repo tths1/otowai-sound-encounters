@@ -1198,12 +1198,20 @@ function bindMappingEditors() {
   }
 }
 
-function bindAdminMappingView() {
+async function bindAdminMappingView() {
   const config = document.querySelector("#maker-config");
   const toggle = document.querySelector("#maker-admin-toggle");
   if (!config || !toggle) return;
-  const enabled = new URLSearchParams(window.location.search).get("admin") === "1";
-  if (!enabled) return;
+  let enabled = false;
+  try {
+    const response = await fetch("/api/admin-session", { credentials: "same-origin", cache: "no-store" });
+    enabled = response.ok && (await response.json()).isOwner === true;
+  } catch {}
+  if (!enabled) {
+    toggle.hidden = true;
+    config.hidden = true;
+    return;
+  }
   toggle.hidden = false;
   toggle.onclick = () => {
     const open = !config.hidden;
