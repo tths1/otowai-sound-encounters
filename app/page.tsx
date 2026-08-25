@@ -276,9 +276,9 @@ const DEFAULT_PHONETIC_ROWS: EditablePhoneticKanaRow[] = [
   {
     id: "default-11",
     chars: "明",
-    kana: "めい",
+    kana: "みん",
     romaji: "ming",
-    note: "明（ming）与明快元音接近。",
+    note: "按用户校对：ming 统一映射为 /みん/。",
   },
   {
     id: "default-12",
@@ -734,7 +734,7 @@ const DEFAULT_PHONETIC_ROWS: EditablePhoneticKanaRow[] = [
   { id: "default-78", chars: "看,刊", kana: "かん", romaji: "kan", note: "同音合并：不区分声调，共用 /かん/。", source: "generated", soundStatus: "same" },
   { id: "default-79", chars: "理,里", kana: "り", romaji: "li", note: "同音合并：不区分声调，共用 /り/。", source: "generated", soundStatus: "same" },
   { id: "default-80", chars: "米,迷", kana: "み", romaji: "mi", note: "同音合并：不区分声调，共用 /み/。", source: "generated", soundStatus: "same" },
-  { id: "default-81", chars: "明,名", kana: "めい", romaji: "ming", note: "同音合并：不区分声调，共用 /めい/。", source: "generated", soundStatus: "same" },
+  { id: "default-81", chars: "明,名", kana: "みん", romaji: "ming", note: "同音合并：ming 不区分声调，共用 /みん/。", source: "generated", soundStatus: "same" },
   { id: "default-82", chars: "书,输", kana: "しゅ", romaji: "shu", note: "同音合并：不区分声调，共用 /しゅ/。", source: "generated", soundStatus: "same" },
   { id: "default-83", chars: "同,童", kana: "と", romaji: "tong", note: "同音合并：不区分声调，共用清音 /と/。", source: "generated", soundStatus: "same" },
   { id: "default-84", chars: "朋,棚", kana: "ぽん", romaji: "peng", note: "新音组：peng 近似 /ぽん/，请检查。", source: "generated", soundStatus: "new" },
@@ -1047,7 +1047,7 @@ const DEFAULT_PHONETIC_ROWS: EditablePhoneticKanaRow[] = [
   { id: "default-401", chars: "没,枚,梅,眉,煤,霉", kana: "めい", romaji: "mei", note: "第二批第14轮生字：按 mei 音组复用 / めい /。", source: "generated", soundStatus: "same" },
   { id: "default-402", chars: "门,闷", kana: "もん", romaji: "men", note: "第二批第14轮生字：按 men 音组复用 / もん /。", source: "generated", soundStatus: "same" },
   { id: "default-403", chars: "密,蜜,秘,弥,眯", kana: "み", romaji: "mi", note: "第二批第14轮生字：按 mi 音组复用 / み /。", source: "generated", soundStatus: "same" },
-  { id: "default-404", chars: "鸣,铭,命", kana: "めい", romaji: "ming", note: "第二批第14轮生字：按 ming 音组复用 / めい /。", source: "generated", soundStatus: "same" },
+  { id: "default-404", chars: "鸣,铭,命", kana: "みん", romaji: "ming", note: "按用户校对：ming 音组复用 /みん/。", source: "generated", soundStatus: "same" },
   { id: "default-405", chars: "膜,魔,模,抹", kana: "も", romaji: "mo", note: "第二批第14轮生字：按 mo 音组复用 / も /。", source: "generated", soundStatus: "same" },
   { id: "default-406", chars: "陌,莫", kana: "も", romaji: "mo", note: "第二批第15轮生字：按 mo 音组复用 / も /。", source: "generated", soundStatus: "same" },
   { id: "default-407", chars: "拿,哪,纳,娜", kana: "な", romaji: "na", note: "第二批第15轮生字：按 na 音组复用 / な /。", source: "generated", soundStatus: "same" },
@@ -1175,6 +1175,7 @@ const DEFAULT_PHRASE_ROWS: EditablePhraseKanaRow[] = [
 
 const MAKER_PHONETIC_ROWS_KEY = "otowai-maker-phonetic-rows";
 const MAKER_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-sentence-audit-1";
+const MING_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-ming-min-1";
 const MAKER_PHRASE_ROWS_KEY = "otowai-maker-phrase-rows";
 const MAKER_HISTORY_KEY = "otowai-maker-history";
 const MAKER_MODE_KEY = "otowai-maker-mode";
@@ -1757,6 +1758,16 @@ export default function Home() {
         row.source = "custom";
       }
     });
+    if (window.localStorage.getItem(MING_MAPPING_CORRECTION_KEY) !== "done") {
+      parsedPhonetic.forEach((row) => {
+        if (row.romaji.trim().toLowerCase() === "ming") {
+          row.kana = "みん";
+          row.note = "按用户校对：ming 统一映射为 /みん/。";
+          row.manual = true;
+        }
+      });
+      window.localStorage.setItem(MING_MAPPING_CORRECTION_KEY, "done");
+    }
     if (window.localStorage.getItem(MAKER_MAPPING_CORRECTION_KEY) !== "done") {
       const correctedIds = new Set(["default-02", "default-18", "default-20", "default-26", "default-28", "default-35", "default-48", "default-63", "default-76", "default-99", "default-100", "default-101", "default-107", "default-110", "default-127", "default-133", "default-200"]);
       correctedIds.forEach((id) => {

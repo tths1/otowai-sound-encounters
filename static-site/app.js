@@ -18,7 +18,7 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-08", chars: "风", kana: "ふう", romaji: "feng", note: "风（feng）与“fū / hūn”类音段可近似。" },
   { id: "default-09", chars: "花", kana: "は", romaji: "hua", note: "花（hua）起始音接近 /wa/，保留 h/f 段落转写。" },
   { id: "default-10", chars: "来", kana: "らい", romaji: "lai", note: "来（lai）可读作连音 /rai/。" },
-  { id: "default-11", chars: "明", kana: "めい", romaji: "ming", note: "明（ming）与明快元音接近。" },
+  { id: "default-11", chars: "明", kana: "みん", romaji: "ming", note: "按用户校对：ming 统一映射为 /みん/。" },
   { id: "default-12", chars: "月", kana: "ゆえ", romaji: "yue", note: "月使用 /ゆえ/。" },
   { id: "default-13", chars: "书", kana: "しゅ", romaji: "shu", note: "书（shu）常见日语读音骨架映射。" },
   { id: "default-14", chars: "文", kana: "ぶん", romaji: "wen", note: "文（wen）靠近日语 /bun/。" },
@@ -89,7 +89,7 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-84", chars: "看,刊", kana: "かん", romaji: "kan", note: "同音合并：不区分声调，共用 /かん/。", source: "generated", soundStatus: "same" },
   { id: "default-85", chars: "理,里", kana: "り", romaji: "li", note: "同音合并：不区分声调，共用 /り/。", source: "generated", soundStatus: "same" },
   { id: "default-86", chars: "米,迷", kana: "み", romaji: "mi", note: "同音合并：不区分声调，共用 /み/。", source: "generated", soundStatus: "same" },
-  { id: "default-88", chars: "明,名", kana: "めい", romaji: "ming", note: "同音合并：不区分声调，共用 /めい/。", source: "generated", soundStatus: "same" },
+  { id: "default-88", chars: "明,名", kana: "みん", romaji: "ming", note: "同音合并：ming 不区分声调，共用 /みん/。", source: "generated", soundStatus: "same" },
   { id: "default-89", chars: "书,输", kana: "しゅ", romaji: "shu", note: "同音合并：不区分声调，共用 /しゅ/。", source: "generated", soundStatus: "same" },
   { id: "default-90", chars: "同,童", kana: "と", romaji: "tong", note: "同音合并：不区分声调，共用清音 /と/。", source: "generated", soundStatus: "same" },
   { id: "default-91", chars: "问,稳", kana: "ぶん", romaji: "wen", note: "文、问、稳同音，统一使用 /ぶん/。", source: "generated", soundStatus: "same" },
@@ -404,7 +404,7 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-401", chars: "没,枚,梅,眉,煤,霉", kana: "めい", romaji: "mei", note: "第二批第14轮生字：按 mei 音组复用 / めい /。", source: "generated", soundStatus: "same" },
   { id: "default-402", chars: "门,闷", kana: "もん", romaji: "men", note: "第二批第14轮生字：按 men 音组复用 / もん /。", source: "generated", soundStatus: "same" },
   { id: "default-403", chars: "密,蜜,秘,弥,眯", kana: "み", romaji: "mi", note: "第二批第14轮生字：按 mi 音组复用 / み /。", source: "generated", soundStatus: "same" },
-  { id: "default-404", chars: "鸣,铭,命", kana: "めい", romaji: "ming", note: "第二批第14轮生字：按 ming 音组复用 / めい /。", source: "generated", soundStatus: "same" },
+  { id: "default-404", chars: "鸣,铭,命", kana: "みん", romaji: "ming", note: "按用户校对：ming 音组复用 /みん/。", source: "generated", soundStatus: "same" },
   { id: "default-405", chars: "膜,魔,模,抹", kana: "も", romaji: "mo", note: "第二批第14轮生字：按 mo 音组复用 / も /。", source: "generated", soundStatus: "same" },
   { id: "default-406", chars: "陌,莫", kana: "も", romaji: "mo", note: "第二批第15轮生字：按 mo 音组复用 / も /。", source: "generated", soundStatus: "same" },
   { id: "default-407", chars: "拿,哪,纳,娜", kana: "な", romaji: "na", note: "第二批第15轮生字：按 na 音组复用 / な /。", source: "generated", soundStatus: "same" },
@@ -509,6 +509,7 @@ const DEFAULT_PHRASE_ROWS = [
 
 const MAKER_PHONETIC_ROWS_KEY = "otowai-maker-phonetic-rows";
 const MAKER_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-sentence-audit-1";
+const MING_MAPPING_CORRECTION_KEY = "otowai-mapping-correction-ming-min-1";
 const MAKER_PHRASE_ROWS_KEY = "otowai-maker-phrase-rows";
 
 let phoneticRows = mergeEditablePhoneticRows(DEFAULT_PHONETIC_ROWS.map((item) => ({ ...item })));
@@ -780,6 +781,17 @@ function loadMappings() {
         row.source = "custom";
       }
     });
+
+    if (localStorage.getItem(MING_MAPPING_CORRECTION_KEY) !== "done") {
+      parsedPhonetic.forEach((row) => {
+        if (row.romaji.trim().toLowerCase() === "ming") {
+          row.kana = "みん";
+          row.note = "按用户校对：ming 统一映射为 /みん/。";
+          row.manual = true;
+        }
+      });
+      localStorage.setItem(MING_MAPPING_CORRECTION_KEY, "done");
+    }
 
     if (localStorage.getItem(MAKER_MAPPING_CORRECTION_KEY) !== "done") {
       const correctedIds = new Set(["default-02", "default-18", "default-20", "default-26", "default-28", "default-35", "default-48", "default-63", "default-80", "default-108", "default-109", "default-110", "default-116", "default-119", "default-136", "default-142", "default-200"]);
