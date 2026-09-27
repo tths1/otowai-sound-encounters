@@ -1,0 +1,16 @@
+[build]
+  publish = "dist/client"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/admin/editor/*"
+  to = "/index.html"
+  status = 200
+  force = true
+  conditions = { Role = ["admin"] }
+
+[[redirects]]
+  from = "/admin/editor/*"
+  to = "/admin/"
+  status = 302
+
