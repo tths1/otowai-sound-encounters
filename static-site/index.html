@@ -7,16 +7,21 @@
   <meta name="description" content="在声音里遇见另一种语言：收集中日之间有趣的谐音、音读与文化回声。">
   <meta property="og:title" content="音逢｜中日谐音文化小志">
   <meta property="og:description" content="在声音里，遇见另一种语言。">
-  <meta property="og:image" content="og.png">
-  <link rel="icon" href="favicon.svg">
-  <link rel="stylesheet" href="style.css">
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem("otowai-theme")||"light"}catch(e){}</script>
+  <meta property="og:image" content="/og.png">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    try{document.documentElement.dataset.theme=localStorage.getItem("otowai-theme")||"light"}catch(e){}
+    if("scrollRestoration" in history)history.scrollRestoration="manual";
+    if(!location.pathname.startsWith("/admin/editor")&&!/^#(?:invite_token|recovery_token|confirmation_token)=/.test(location.hash)&&location.hash&&location.hash!=="#top")history.replaceState(null,"",location.pathname+location.search+"#top");
+    addEventListener("load",()=>{if(!location.pathname.startsWith("/admin/editor"))scrollTo(0,0)},{once:true});
+  </script>
 </head>
 <body>
   <main>
     <nav class="nav shell" aria-label="主导航">
       <a class="brand" href="#top"><span class="brand-mark">音</span><span>音逢<small>おとあい</small></span></a>
-      <div class="nav-links"><a href="#collection">谐音词集</a><a href="#maker">空耳制造器</a><a href="#about">关于音逢</a><a class="nav-cta" href="#submit">分享发现</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false"><span aria-hidden="true">◐</span><b>深色</b></button></div>
+      <div class="nav-links"><a href="#collection">谐音词集</a><a href="#maker">空耳制造器</a><a href="#project">项目说明</a><a href="#about">关于音逢</a><a class="nav-cta" href="#submit">分享发现</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false"><span aria-hidden="true">◐</span><b>深色</b></button></div>
     </nav>
 
     <section class="hero shell" id="top">
@@ -51,6 +56,19 @@
         <p class="vertical-note">谐音不是翻译，是一次声音的偶遇</p>
         <blockquote>“忽逢桃花林”念作<strong>ふーふん たお はりん</strong>时，一千六百年前的桃花，仿佛开进了另一种语言。</blockquote>
         <div class="manifesto-copy"><p>这里不试图证明两种语言“本来一样”，而是把巧合、音读、音译和个人联想分门记录。</p><p>每个词条都是一扇小门：从好玩的声音出发，走向汉字传播、语音变化和文学记忆。</p></div>
+      </div>
+    </section>
+
+    <section class="project-section shell" id="project" aria-labelledby="project-title">
+      <header class="project-heading">
+        <div><p class="eyebrow"><span></span> PROJECT OVERVIEW</p><h2 id="project-title">让汉字在另一种声音里被重新听见</h2></div>
+        <p>参赛作品 · AI WEB 网页开发挑战赛</p>
+      </header>
+      <div class="project-capabilities">
+        <article><b>01</b><h3>逐字音感转换</h3><p>不做语义翻译，按汉字拼音与日语假名的相近音节逐字生成“空耳”表达。</p></article>
+        <article><b>02</b><h3>同音字自动复用</h3><p>同一拼音的常用汉字共用规则，让输出保持一致，并持续扩充音感字库。</p></article>
+        <article><b>03</b><h3>朗读时长自动匹配</h3><p>先实测原句与假名的朗读时长，再自动调整假名语速，保留自然的节奏感。</p></article>
+        <article><b>04</b><h3>可维护的声音词库</h3><p>管理端可编辑拼音—假名规则；普通访问者只使用生成器，避免误改原始规则。</p></article>
       </div>
     </section>
 
@@ -91,7 +109,7 @@
             </label>
 
             <article class="mapping-card">
-              <h4>同音字组（多字用“,”分隔）</h4>
+              <h4>拼音映射规则</h4>
               <p class="mapping-legend"><span class="legend-same">已有生成字组</span><span class="legend-new">新增音组待校对</span></p>
               <div class="table-scroll">
                 <table>
@@ -106,7 +124,7 @@
                   <tbody id="phonetic-mapping-rows"></tbody>
                 </table>
               </div>
-              <button type="button" id="add-phonetic-row">新增同音字组</button>
+              <button type="button" id="add-phonetic-row">新增拼音规则</button>
             </article>
 
           </section>
@@ -168,7 +186,8 @@
     </section>
     <footer class="footer shell"><a class="brand" href="#top"><span class="brand-mark">音</span><span>音逢</span></a><p>一个关于汉字、假名与声音联想的学习项目。</p><a href="#top">回到开头 ↑</a></footer>
   </main>
-  <script src="pinyin-data.js"></script>
-  <script src="app.js"></script>
+  <script src="/pinyin-data.js"></script>
+  <script>if(/^#(?:invite_token|recovery_token|confirmation_token)=/.test(location.hash))location.replace("/admin/"+location.hash)</script>
+  <script src="/app.js"></script>
 </body>
 </html>

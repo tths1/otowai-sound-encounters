@@ -50,7 +50,7 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-39", chars: "大", kana: "だ", romaji: "da", note: "大（da）可用开口 /da/ 声段。" },
   { id: "default-40", chars: "小", kana: "しょう", romaji: "xiao", note: "小（xiao）偏音节可读作 /shō/。" },
   { id: "default-41", chars: "上", kana: "しよう", romaji: "shang", note: "上（shang）可做近似 /shō/ 展开。" },
-  { id: "default-42", chars: "下", kana: "か", romaji: "xia", note: "下（xia）可用近音 /ka/ 近似。" },
+  { id: "default-42", chars: "下,夏,瞎,峡,霞", kana: "しあ", romaji: "xia", note: "同音合并：xia 共用用户指定规则 / しあ /。", source: "manual", soundStatus: "same" },
   { id: "default-43", chars: "去", kana: "きょ", romaji: "qu", note: "去（qu）可音位接近 /kyo/。" },
   { id: "default-44", chars: "来", kana: "らい", romaji: "lai", note: "来（lai）强调连读入口。" },
   { id: "default-45", chars: "好", kana: "はお", romaji: "hao", note: "好（hao）可拉长音段。" },
@@ -123,7 +123,7 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-119", chars: "和,喝,河,合", kana: "へ", romaji: "he", note: "纠错：按中文 he 音译为 /へ/，不使用意译式 /わ/。", source: "generated", soundStatus: "same" },
   { id: "default-120", chars: "旧,就,九,酒", kana: "きゅう", romaji: "jiu", note: "同音合并：jiu 不区分声调，共用 /きゅう/。", source: "generated", soundStatus: "same" },
   { id: "default-121", chars: "把,八,巴", kana: "は", romaji: "ba", note: "同音合并：ba 不区分声调，共用 /は/。", source: "generated", soundStatus: "same" },
-  { id: "default-122", chars: "被,备,杯", kana: "ひ", romaji: "bei", note: "同音合并：bei 共用现有规则 /ひ/。", source: "generated", soundStatus: "same" },
+  { id: "default-122", chars: "被,备,杯,北,背,倍,悲,贝,辈,碑,蓓,惫", kana: "ベイ", romaji: "bei", note: "同音合并：bei 共用用户指定规则 / ベイ /。", source: "manual", soundStatus: "same" },
   { id: "default-123", chars: "从", kana: "つ", romaji: "cong", note: "常用字：cong 近似 /つ/，请检查。", source: "generated", soundStatus: "new" },
   { id: "default-124", chars: "到", kana: "どう", romaji: "dao", note: "常用字：dao 使用浊音 /どう/。", source: "generated", soundStatus: "new" },
   { id: "default-125", chars: "让", kana: "らん", romaji: "rang", note: "常用字：rang 近似 /らん/，请检查。", source: "generated", soundStatus: "new" },
@@ -256,7 +256,6 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-253", chars: "邦,傍,磅,膀,蚌,谤", kana: "ばん", romaji: "bang", note: "第3轮生字：按 bang 音组复用 / ばん /。", source: "generated", soundStatus: "same" },
   { id: "default-254", chars: "保,宝,抱,暴,薄,胞,堡,豹,苞", kana: "ほう", romaji: "bao", note: "第3轮生字：按 bao 音组复用 / ほう /。", source: "generated", soundStatus: "same" },
   { id: "default-255", chars: "褒", kana: "ほう", romaji: "bao", note: "第4轮生字：按 bao 音组复用 / ほう /。", source: "generated", soundStatus: "same" },
-  { id: "default-256", chars: "北,背,倍,悲,贝,辈,碑,蓓,惫", kana: "ひ", romaji: "bei", note: "第4轮生字：按 bei 音组复用 / ひ /。", source: "generated", soundStatus: "same" },
   { id: "default-257", chars: "苯", kana: "べん", romaji: "ben", note: "第4轮生字：按 ben 音组复用 / べん /。", source: "generated", soundStatus: "same" },
   { id: "default-258", chars: "扁,遍,辨,辩,鞭,贬,辫,卞", kana: "べん", romaji: "bian", note: "第4轮生字：按 bian 音组复用 / べん /。", source: "generated", soundStatus: "same" },
   { id: "default-259", chars: "彪", kana: "びょう", romaji: "biao", note: "第4轮生字：按 biao 音组复用 / びょう /。", source: "generated", soundStatus: "same" },
@@ -463,8 +462,248 @@ const DEFAULT_PHONETIC_ROWS = [
   { id: "default-460", chars: "算,酸", kana: "すあん", romaji: "suan", note: "补充音组：suan 近似 /すあん/，请校对。", source: "generated", soundStatus: "new" },
   { id: "default-461", chars: "万,晚", kana: "わん", romaji: "wan", note: "补充音组：wan 近似 /わん/，请校对。", source: "generated", soundStatus: "new" },
   { id: "default-462", chars: "王,网", kana: "わん", romaji: "wang", note: "补充音组：wang 近似 /わん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-463", chars: "知,直", kana: "じ", romaji: "zhi", note: "常见字补充：zhi 近似 /じ/。", source: "generated", soundStatus: "new" },
+  { id: "default-464", chars: "坏", kana: "ふぁい", romaji: "huai", note: "常见字补充：huai 近似 /ふぁい/。", source: "generated", soundStatus: "new" },
+  { id: "default-465", chars: "母", kana: "む", romaji: "mu", note: "常见字补充：mu 近似 /む/。", source: "generated", soundStatus: "new" },
+  { id: "default-466", chars: "站", kana: "じゃん", romaji: "zhan", note: "常见字补充：zhan 近似 /じゃん/。", source: "generated", soundStatus: "new" },
+  { id: "default-467", chars: "买,卖", kana: "まい", romaji: "mai", note: "同音合并：mai 共用 /まい/。", source: "generated", soundStatus: "new" },
+  { id: "default-468", chars: "南,难,男", kana: "なん", romaji: "nan", note: "同音合并：nan 共用 /なん/。", source: "generated", soundStatus: "new" },
+  { id: "default-469", chars: "需,续", kana: "しゅ", romaji: "xu", note: "同音合并：xu 近似 /しゅ/。", source: "generated", soundStatus: "new" },
+  { id: "default-470", chars: "该", kana: "がい", romaji: "gai", note: "常见字补充：gai 近似 /がい/。", source: "generated", soundStatus: "new" },
+  { id: "default-471", chars: "因,音", kana: "いん", romaji: "yin", note: "同音合并：yin 共用 /いん/。", source: "generated", soundStatus: "new" },
+  { id: "default-472", chars: "为", kana: "うぇい", romaji: "wei", note: "常见字补充：wei 近似 /うぇい/。", source: "generated", soundStatus: "new" },
+  { id: "default-473", chars: "所", kana: "すお", romaji: "suo", note: "常见字补充：suo 近似 /すお/。", source: "generated", soundStatus: "new" },
+  { id: "default-474", chars: "怎", kana: "ぜん", romaji: "zen", note: "常见字补充：zen 近似 /ぜん/。", source: "generated", soundStatus: "new" },
+  { id: "default-475", chars: "题", kana: "てぃ", romaji: "ti", note: "常见字补充：ti 近似 /てぃ/。", source: "generated", soundStatus: "new" },
+  { id: "default-476", chars: "法,发", kana: "ふぁ", romaji: "fa", note: "同音合并：fa 共用 /ふぁ/。", source: "generated", soundStatus: "new" },
+  { id: "default-477", chars: "地,第", kana: "でぃ", romaji: "di", note: "同音合并：di 共用 /でぃ/。", source: "generated", soundStatus: "new" },
+  { id: "default-478", chars: "言", kana: "いぇん", romaji: "yan", note: "常见字补充：yan 近似 /いぇん/。", source: "generated", soundStatus: "new" },
+  { id: "default-479", chars: "校,笑", kana: "しあ", romaji: "xiao", note: "同音合并：xiao 近似 /しあ/。", source: "generated", soundStatus: "new" },
+  { id: "default-480", chars: "农", kana: "のん", romaji: "nong", note: "常见字补充：nong 近似 /のん/。", source: "generated", soundStatus: "new" },
+  { id: "default-481", chars: "游", kana: "よう", romaji: "you", note: "常见字补充：you 近似 /よう/。", source: "generated", soundStatus: "new" },
+  { id: "default-482", chars: "戏,希", kana: "し", romaji: "xi", note: "同音合并：xi 共用 /し/。", source: "generated", soundStatus: "new" },
+  { id: "default-483", chars: "秋", kana: "ちゅう", romaji: "qiu", note: "常见字补充：qiu 近似 /ちゅう/。", source: "generated", soundStatus: "new" },
+  { id: "default-484", chars: "哭", kana: "く", romaji: "ku", note: "常见字补充：ku 近似 /く/。", source: "generated", soundStatus: "new" },
+  { id: "default-485", chars: "跑", kana: "ぱお", romaji: "pao", note: "常见字补充：pao 近似 /ぱお/。", source: "generated", soundStatus: "new" },
+  { id: "default-486", chars: "跳", kana: "てぃあお", romaji: "tiao", note: "常见字补充：tiao 近似 /てぃあお/。", source: "generated", soundStatus: "new" },
+  { id: "default-487", chars: "写", kana: "しえ", romaji: "xie", note: "常见字补充：xie 近似 /しえ/。", source: "generated", soundStatus: "new" },
+  { id: "default-488", chars: "入", kana: "る", romaji: "ru", note: "常见字补充：ru 近似 /る/。", source: "generated", soundStatus: "new" },
+  { id: "default-489", chars: "望", kana: "わん", romaji: "wang", note: "常见字补充：wang 近似 /わん/。", source: "generated", soundStatus: "new" },
+  { id: "default-490", chars: "用", kana: "よん", romaji: "yong", note: "常见字补充：yong 近似 /よん/。", source: "generated", soundStatus: "new" },
+  { id: "default-491", chars: "确", kana: "ちゅえ", romaji: "que", note: "常见字补充：que 近似 /ちゅえ/。", source: "generated", soundStatus: "new" },
+  { id: "default-492", chars: "误", kana: "う", romaji: "wu", note: "常见字补充：wu 近似 /う/。", source: "generated", soundStatus: "new" },
+  { id: "default-493", chars: "杂", kana: "ざ", romaji: "za", note: "常见字补充：za 近似 /ざ/。", source: "generated", soundStatus: "new" },
+  { id: "default-494", chars: "重", kana: "じょん", romaji: "zhong", note: "常见字补充：zhong 近似 /じょん/。", source: "generated", soundStatus: "new" },
+  { id: "default-495", chars: "特", kana: "て", romaji: "te", note: "常见字补充：te 近似 /て/。", source: "generated", soundStatus: "new" },
+  { id: "default-496", chars: "完", kana: "わん", romaji: "wan", note: "常见字补充：wan 近似 /わん/。", source: "generated", soundStatus: "new" },
+  { id: "default-497", chars: "与", kana: "ゆ", romaji: "yu", note: "常见字补充：yu 近似 /ゆ/。", source: "generated", soundStatus: "new" },
+  { id: "default-498", chars: "给", kana: "げい", romaji: "gei", note: "常见字补充：gei 近似 /げい/。", source: "generated", soundStatus: "new" },
+  { id: "default-499", chars: "如", kana: "る", romaji: "ru", note: "常见字补充：ru 近似 /る/。", source: "generated", soundStatus: "new" },
+  { id: "default-500", chars: "已,椅,宜,议", kana: "い", romaji: "yi", note: "同音合并：yi 共用 /い/。", source: "generated", soundStatus: "new" },
+  { id: "default-501", chars: "什,身", kana: "しぇん", romaji: "shen", note: "同音合并：shen 近似 /しぇん/。", source: "generated", soundStatus: "new" },
+  { id: "default-502", chars: "么", kana: "め", romaji: "me", note: "常见字补充：me 近似 /め/。", source: "generated", soundStatus: "new" },
+  { id: "default-503", chars: "乐", kana: "れ", romaji: "le", note: "常见字补充：le 近似 /れ/。", source: "generated", soundStatus: "new" },
+  { id: "default-504", chars: "兴,姓", kana: "しん", romaji: "xing", note: "同音合并：xing 共用 /しん/。", source: "generated", soundStatus: "new" },
+  { id: "default-505", chars: "女", kana: "にゅ", romaji: "nü", note: "常见字补充：nü 近似 /にゅ/。", source: "generated", soundStatus: "new" },
+  { id: "default-506", chars: "些,谢", kana: "しえ", romaji: "xie", note: "同音合并：xie 共用 /しえ/。", source: "generated", soundStatus: "new" },
+  { id: "default-507", chars: "始,视", kana: "し", romaji: "shi", note: "同音合并：shi 共用 /し/。", source: "generated", soundStatus: "new" },
+  { id: "default-508", chars: "结", kana: "じえ", romaji: "jie", note: "常见字补充：jie 近似 /じえ/。", source: "generated", soundStatus: "new" },
+  { id: "default-509", chars: "辑,继", kana: "じ", romaji: "ji", note: "同音合并：ji 共用 /じ/。", source: "generated", soundStatus: "new" },
+  { id: "default-510", chars: "选", kana: "しゅあん", romaji: "xuan", note: "常见字补充：xuan 近似 /しゅあん/。", source: "generated", soundStatus: "new" },
+  { id: "default-511", chars: "择", kana: "ぜ", romaji: "ze", note: "常见字补充：ze 近似 /ぜ/。", source: "generated", soundStatus: "new" },
+  { id: "default-512", chars: "您", kana: "にん", romaji: "nin", note: "常见字补充：nin 近似 /にん/。", source: "generated", soundStatus: "new" },
+  { id: "default-513", chars: "岁", kana: "すい", romaji: "sui", note: "常见字补充：sui 近似 /すい/。", source: "generated", soundStatus: "new" },
+  { id: "default-514", chars: "系,息", kana: "し", romaji: "xi", note: "同音合并：xi 共用 /し/。", source: "generated", soundStatus: "new" },
+  { id: "default-515", chars: "院,原", kana: "ゆえん", romaji: "yuan", note: "同音合并：yuan 近似 /ゆえん/。", source: "generated", soundStatus: "new" },
+  { id: "default-516", chars: "钟", kana: "じょん", romaji: "zhong", note: "常见字补充：zhong 近似 /じょん/。", source: "generated", soundStatus: "new" },
+  { id: "default-517", chars: "昨,做", kana: "ずお", romaji: "zuo", note: "同音合并：zuo 共用 /ずお/。", source: "generated", soundStatus: "new" },
+  { id: "default-518", chars: "热", kana: "れ", romaji: "re", note: "常见字补充：re 近似 /れ/。", source: "generated", soundStatus: "new" },
+  { id: "default-519", chars: "苹", kana: "ぴん", romaji: "ping", note: "常见字补充：ping 近似 /ぴん/。", source: "generated", soundStatus: "new" },
+  { id: "default-520", chars: "颜", kana: "いぇん", romaji: "yan", note: "常见字补充：yan 近似 /いぇん/。", source: "generated", soundStatus: "new" },
+  { id: "default-521", chars: "色", kana: "せ", romaji: "se", note: "常见字补充：se 近似 /せ/。", source: "generated", soundStatus: "new" },
+  { id: "default-522", chars: "铁", kana: "てぃえ", romaji: "tie", note: "常见字补充：tie 近似 /てぃえ/。", source: "generated", soundStatus: "new" },
+  { id: "default-523", chars: "租,足", kana: "ず", romaji: "zu", note: "同音合并：zu 共用 /ず/。", source: "generated", soundStatus: "new" },
+  { id: "default-524", chars: "银", kana: "いん", romaji: "yin", note: "常见字补充：yin 近似 /いん/。", source: "generated", soundStatus: "new" },
+  { id: "default-525", chars: "邮", kana: "よう", romaji: "you", note: "常见字补充：you 近似 /よう/。", source: "generated", soundStatus: "new" },
+  { id: "default-526", chars: "超", kana: "ちゃお", romaji: "chao", note: "常见字补充：chao 近似 /ちゃお/。", source: "generated", soundStatus: "new" },
+  { id: "default-527", chars: "务,午", kana: "う", romaji: "wu", note: "同音合并：wu 共用 /う/。", source: "generated", soundStatus: "new" },
+  { id: "default-528", chars: "体,提", kana: "てぃ", romaji: "ti", note: "同音合并：ti 共用 /てぃ/。", source: "generated", soundStatus: "new" },
+  { id: "default-529", chars: "健", kana: "じえん", romaji: "jian", note: "常见字补充：jian 近似 /じえん/。", source: "generated", soundStatus: "new" },
+  { id: "default-530", chars: "药", kana: "やお", romaji: "yao", note: "常见字补充：yao 近似 /やお/。", source: "generated", soundStatus: "new" },
+  { id: "default-531", chars: "休", kana: "しゅう", romaji: "xiu", note: "常见字补充：xiu 近似 /しゅう/。", source: "generated", soundStatus: "new" },
+  { id: "default-532", chars: "运", kana: "ゆん", romaji: "yun", note: "常见字补充：yun 近似 /ゆん/。", source: "generated", soundStatus: "new" },
+  { id: "default-533", chars: "泳", kana: "よん", romaji: "yong", note: "常见字补充：yong 近似 /よん/。", source: "generated", soundStatus: "new" },
+  { id: "default-534", chars: "球", kana: "ちゅう", romaji: "qiu", note: "常见字补充：qiu 近似 /ちゅう/。", source: "generated", soundStatus: "new" },
+  { id: "default-535", chars: "必,闭", kana: "び", romaji: "bi", note: "同音合并：bi 共用 /び/。", source: "generated", soundStatus: "new" },
+  { id: "default-536", chars: "须", kana: "しゅ", romaji: "xu", note: "常见字补充：xu 近似 /しゅ/。", source: "generated", soundStatus: "new" },
+  { id: "default-537", chars: "努", kana: "ぬ", romaji: "nu", note: "常见字补充：nu 近似 /ぬ/。", source: "generated", soundStatus: "new" },
+  { id: "default-538", chars: "感", kana: "がん", romaji: "gan", note: "常见字补充：gan 近似 /がん/。", source: "generated", soundStatus: "new" },
+  { id: "default-539", chars: "改", kana: "がい", romaji: "gai", note: "常见字补充：gai 近似 /がい/。", source: "generated", soundStatus: "new" },
+  { id: "default-540", chars: "增", kana: "ぜん", romaji: "zeng", note: "常见字补充：zeng 近似 /ぜん/。", source: "generated", soundStatus: "new" },
+  { id: "default-541", chars: "诉", kana: "す", romaji: "su", note: "常见字补充：su 近似 /す/。", source: "generated", soundStatus: "new" },
+  { id: "default-542", chars: "忘", kana: "わん", romaji: "wang", note: "常见字补充：wang 近似 /わん/。", source: "generated", soundStatus: "new" },
+  { id: "default-543", chars: "送", kana: "そん", romaji: "song", note: "常见字补充：song 近似 /そん/。", source: "generated", soundStatus: "new" },
+  { id: "default-544", chars: "爷", kana: "や", romaji: "ye", note: "常见字补充：ye 复用 /や/。", source: "generated", soundStatus: "new" },
+  { id: "default-545", chars: "奶", kana: "ない", romaji: "nai", note: "常见字补充：nai 近似 /ない/。", source: "generated", soundStatus: "new" },
+  { id: "default-546", chars: "叔,蔬", kana: "しゅ", romaji: "shu", note: "同音合并：shu 共用 /しゅ/。", source: "generated", soundStatus: "new" },
+  { id: "default-547", chars: "阿", kana: "あ", romaji: "a", note: "常见字补充：a 直接使用 /あ/。", source: "generated", soundStatus: "new" },
+  { id: "default-548", chars: "姨,意,易", kana: "い", romaji: "yi", note: "同音合并：yi 共用 /い/。", source: "generated", soundStatus: "new" },
+  { id: "default-549", chars: "婴", kana: "いん", romaji: "ying", note: "常见字补充：ying 复用 /いん/。", source: "generated", soundStatus: "new" },
+  { id: "default-550", chars: "幼,油", kana: "ゆう", romaji: "you", note: "同音合并：you 共用 /ゆう/。", source: "generated", soundStatus: "new" },
+  { id: "default-551", chars: "青", kana: "じょう", romaji: "qing", note: "常见字补充：qing 复用现有 /じょう/。", source: "generated", soundStatus: "new" },
+  { id: "default-552", chars: "伙,或", kana: "ほ", romaji: "huo", note: "同音合并：huo 共用 /ほ/。", source: "generated", soundStatus: "new" },
+  { id: "default-553", chars: "员,愿", kana: "えん", romaji: "yuan", note: "同音合并：yuan 共用 /えん/。", source: "generated", soundStatus: "new" },
+  { id: "default-554", chars: "民", kana: "みん", romaji: "min", note: "常见字补充：min 近似 /みん/。", source: "generated", soundStatus: "new" },
+  { id: "default-555", chars: "社", kana: "しぇ", romaji: "she", note: "常见字补充：she 近似 /しぇ/。", source: "generated", soundStatus: "new" },
+  { id: "default-556", chars: "济", kana: "じ", romaji: "ji", note: "常见字补充：ji 复用 /じ/。", source: "generated", soundStatus: "new" },
+  { id: "default-557", chars: "政", kana: "じぇん", romaji: "zheng", note: "常见字补充：zheng 复用 /じぇん/。", source: "generated", soundStatus: "new" },
+  { id: "default-558", chars: "治,植,志,止", kana: "し", romaji: "zhi", note: "同音合并：zhi 共用 /し/。", source: "generated", soundStatus: "new" },
+  { id: "default-559", chars: "育,于", kana: "ゆ", romaji: "yu", note: "同音合并：yu 共用 /ゆ/。", source: "generated", soundStatus: "new" },
+  { id: "default-560", chars: "物", kana: "う", romaji: "wu", note: "常见字补充：wu 复用 /う/。", source: "generated", soundStatus: "new" },
+  { id: "default-561", chars: "品", kana: "ぴん", romaji: "pin", note: "常见字补充：pin 近似 /ぴん/。", source: "generated", soundStatus: "new" },
+  { id: "default-562", chars: "饮", kana: "いん", romaji: "yin", note: "常见字补充：yin 复用 /いん/。", source: "generated", soundStatus: "new" },
+  { id: "default-563", chars: "料", kana: "りあお", romaji: "liao", note: "常见字补充：liao 近似 /りあお/。", source: "generated", soundStatus: "new" },
+  { id: "default-564", chars: "肉", kana: "ろう", romaji: "rou", note: "常见字补充：rou 近似 /ろう/。", source: "generated", soundStatus: "new" },
+  { id: "default-565", chars: "盐", kana: "えん", romaji: "yan", note: "常见字补充：yan 复用 /えん/。", source: "generated", soundStatus: "new" },
+  { id: "default-566", chars: "糖", kana: "たん", romaji: "tang", note: "常见字补充：tang 近似 /たん/。", source: "generated", soundStatus: "new" },
+  { id: "default-567", chars: "桥", kana: "ちあお", romaji: "qiao", note: "常见字补充：qiao 近似 /ちあお/。", source: "generated", soundStatus: "new" },
+  { id: "default-568", chars: "层", kana: "つぇん", romaji: "ceng", note: "常见字补充：ceng 近似 /つぇん/。", source: "generated", soundStatus: "new" },
+  { id: "default-569", chars: "梯", kana: "てぃ", romaji: "ti", note: "常见字补充：ti 复用 /てぃ/。", source: "generated", soundStatus: "new" },
+  { id: "default-570", chars: "卧", kana: "うぉ", romaji: "wo", note: "常见字补充：wo 复用 /うぉ/。", source: "generated", soundStatus: "new" },
+  { id: "default-571", chars: "墙", kana: "ちあん", romaji: "qiang", note: "常见字补充：qiang 近似 /ちあん/。", source: "generated", soundStatus: "new" },
+  { id: "default-572", chars: "片", kana: "ぴえん", romaji: "pian", note: "常见字补充：pian 近似 /ぴえん/。", source: "generated", soundStatus: "new" },
+  { id: "default-573", chars: "箱,相", kana: "しゃん", romaji: "xiang", note: "同音合并：xiang 共用 /しゃん/。", source: "generated", soundStatus: "new" },
+  { id: "default-574", chars: "鞋", kana: "しえ", romaji: "xie", note: "常见字补充：xie 复用 /しえ/。", source: "generated", soundStatus: "new" },
+  { id: "default-575", chars: "袜", kana: "わ", romaji: "wa", note: "常见字补充：wa 近似 /わ/。", source: "generated", soundStatus: "new" },
+  { id: "default-576", chars: "钥", kana: "よう", romaji: "yao", note: "常见字补充：yao 复用 /よう/。", source: "generated", soundStatus: "new" },
+  { id: "default-577", chars: "匙,示", kana: "し", romaji: "shi", note: "同音合并：shi 共用 /し/。", source: "generated", soundStatus: "new" },
+  { id: "default-578", chars: "笔,比", kana: "び", romaji: "bi", note: "同音合并：bi 共用 /び/。", source: "generated", soundStatus: "new" },
+  { id: "default-579", chars: "未", kana: "うぇい", romaji: "wei", note: "常见字补充：wei 复用 /うぇい/。", source: "generated", soundStatus: "new" },
+  { id: "default-580", chars: "虽", kana: "すい", romaji: "sui", note: "常见字补充：sui 复用 /すい/。", source: "generated", soundStatus: "new" },
+  { id: "default-581", chars: "且", kana: "ちえ", romaji: "qie", note: "常见字补充：qie 近似 /ちえ/。", source: "generated", soundStatus: "new" },
+  { id: "default-582", chars: "其", kana: "き", romaji: "qi", note: "常见字补充：qi 复用 /き/。", source: "generated", soundStatus: "new" },
+  { id: "default-583", chars: "终", kana: "ちゅう", romaji: "zhong", note: "常见字补充：zhong 复用 /ちゅう/。", source: "generated", soundStatus: "new" },
+  { id: "default-584", chars: "突", kana: "とぅ", romaji: "tu", note: "常见字补充：tu 复用 /とぅ/。", source: "generated", soundStatus: "new" },
+  { id: "default-585", chars: "当", kana: "だん", romaji: "dang", note: "常见字补充：dang 近似 /だん/。", source: "generated", soundStatus: "new" },
+  { id: "default-586", chars: "许", kana: "しゅ", romaji: "xu", note: "常见字补充：xu 复用 /しゅ/。", source: "generated", soundStatus: "new" },
+  { id: "default-587", chars: "太", kana: "たい", romaji: "tai", note: "常见字补充：tai 近似 /たい/。", source: "generated", soundStatus: "new" },
+  { id: "default-588", chars: "各", kana: "こ", romaji: "ge", note: "常见字补充：ge 复用 /こ/。", source: "generated", soundStatus: "new" },
+  { id: "default-589", chars: "样", kana: "やん", romaji: "yang", note: "常见字补充：yang 复用 /やん/。", source: "generated", soundStatus: "new" },
+  { id: "default-590", chars: "容", kana: "ろん", romaji: "rong", note: "常见字补充：rong 近似 /ろん/。", source: "generated", soundStatus: "new" },
+  { id: "default-591", chars: "信", kana: "しん", romaji: "xin", note: "常见字补充：xin 复用 /しん/。", source: "generated", soundStatus: "new" },
+  { id: "default-592", chars: "掉", kana: "でぃあお", romaji: "diao", note: "常见字补充：diao 近似 /でぃあお/。", source: "generated", soundStatus: "new" },
+  { id: "default-593", chars: "持", kana: "ち", romaji: "chi", note: "常见字补充：chi 复用 /ち/。", source: "generated", soundStatus: "new" },
+  { id: "default-594", chars: "求", kana: "ちゅう", romaji: "qiu", note: "常见字补充：qiu 复用 /ちゅう/。", source: "generated", soundStatus: "new" },
+  { id: "default-595", chars: "寻", kana: "しゅん", romaji: "xun", note: "常见字补充：xun 近似 /しゅん/。", source: "generated", soundStatus: "new" },
+  { id: "default-596", chars: "崩", kana: "べん", romaji: "beng", note: "标准音节补缺：beng 对应 /べん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-597", chars: "擦", kana: "つぁ", romaji: "ca", note: "标准音节补缺：ca 对应 /つぁ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-598", chars: "仓", kana: "つぁん", romaji: "cang", note: "标准音节补缺：cang 对应 /つぁん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-599", chars: "岑", kana: "つぇん", romaji: "cen", note: "标准音节补缺：cen 对应 /つぇん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-600", chars: "柴,拆", kana: "ちゃい", romaji: "chai", note: "标准音节补缺：chai 对应 /ちゃい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-601", chars: "欻", kana: "ちゅあ", romaji: "chua", note: "标准音节补缺：chua 对应 /ちゅあ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-602", chars: "揣,踹", kana: "ちゅあい", romaji: "chuai", note: "标准音节补缺：chuai 对应 /ちゅあい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-603", chars: "吹,垂", kana: "ちゅい", romaji: "chui", note: "标准音节补缺：chui 对应 /ちゅい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-604", chars: "戳,绰", kana: "ちゅお", romaji: "chuo", note: "标准音节补缺：chuo 对应 /ちゅお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-605", chars: "凑", kana: "つぉう", romaji: "cou", note: "标准音节补缺：cou 对应 /つぉう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-606", chars: "窜,攒", kana: "つあん", romaji: "cuan", note: "标准音节补缺：cuan 对应 /つあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-607", chars: "嘚", kana: "でい", romaji: "dei", note: "标准音节补缺：dei 对应 /でい/；保留“得”的常用 de 读法。", source: "generated", soundStatus: "new" },
+  { id: "default-608", chars: "爹,跌,迭,谍,叠,蝶", kana: "でぃえ", romaji: "die", note: "标准音节补缺：die 对应 /でぃえ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-609", chars: "丢", kana: "でぃう", romaji: "diu", note: "标准音节补缺：diu 对应 /でぃう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-610", chars: "兜,抖,斗,豆,逗", kana: "どう", romaji: "dou", note: "标准音节补缺：dou 对应 /どう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-611", chars: "恩", kana: "えん", romaji: "en", note: "标准音节补缺：en 对应 /えん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-612", chars: "鞥", kana: "えん", romaji: "eng", note: "标准音节补缺：eng 对应 /えん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-613", chars: "佛", kana: "ふぉ", romaji: "fo", note: "标准音节补缺：fo 对应 /ふぉ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-614", chars: "否", kana: "ふぉう", romaji: "fou", note: "标准音节补缺：fou 对应 /ふぉう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-615", chars: "嘎,尬", kana: "が", romaji: "ga", note: "标准音节补缺：ga 对应 /が/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-616", chars: "根,跟", kana: "げん", romaji: "gen", note: "标准音节补缺：gen 对应 /げん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-617", chars: "卷,捐", kana: "じゅあん", romaji: "juan", note: "标准音节补缺：juan 对应 /じゅあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-618", chars: "亏,葵,愧", kana: "くい", romaji: "kui", note: "标准音节补缺：kui 对应 /くい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-619", chars: "扩,阔,括", kana: "くお", romaji: "kuo", note: "标准音节补缺：kuo 对应 /くお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-620", chars: "乱,卵,峦", kana: "るあん", romaji: "luan", note: "标准音节补缺：luan 对应 /るあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-621", chars: "论,轮,伦", kana: "るん", romaji: "lun", note: "标准音节补缺：lun 对应 /るん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-622", chars: "罗,落,洛,裸,骆", kana: "るお", romaji: "luo", note: "标准音节补缺：luo 对应 /るお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-623", chars: "略", kana: "りゅえ", romaji: "lüe", note: "标准音节补缺：lüe 对应 /りゅえ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-624", chars: "忙,芒,盲,茫", kana: "まん", romaji: "mang", note: "标准音节补缺：mang 对应 /まん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-625", chars: "梦,猛,蒙", kana: "もん", romaji: "meng", note: "标准音节补缺：meng 对应 /もん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-626", chars: "面,棉,免", kana: "みえん", romaji: "mian", note: "标准音节补缺：mian 对应 /みえん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-627", chars: "秒,苗,妙", kana: "みあお", romaji: "miao", note: "标准音节补缺：miao 对应 /みあお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-628", chars: "灭", kana: "みえ", romaji: "mie", note: "标准音节补缺：mie 对应 /みえ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-629", chars: "谬", kana: "みゅう", romaji: "miu", note: "标准音节补缺：miu 对应 /みゅう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-630", chars: "某,谋", kana: "もう", romaji: "mou", note: "标准音节补缺：mou 对应 /もう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-631", chars: "囊", kana: "なん", romaji: "nang", note: "标准音节补缺：nang 对应 /なん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-632", chars: "呢", kana: "ね", romaji: "ne", note: "标准音节补缺：ne 对应 /ね/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-633", chars: "嫩", kana: "ねん", romaji: "nen", note: "标准音节补缺：nen 对应 /ねん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-634", chars: "娘", kana: "にあん", romaji: "niang", note: "标准音节补缺：niang 对应 /にあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-635", chars: "捏,聂,孽", kana: "にえ", romaji: "nie", note: "标准音节补缺：nie 对应 /にえ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-636", chars: "宁,凝,拧", kana: "にん", romaji: "ning", note: "标准音节补缺：ning 对应 /にん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-637", chars: "牛,扭,纽", kana: "にゅう", romaji: "niu", note: "标准音节补缺：niu 对应 /にゅう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-638", chars: "暖", kana: "ぬあん", romaji: "nuan", note: "标准音节补缺：nuan 对应 /ぬあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-639", chars: "诺,挪,懦", kana: "ぬお", romaji: "nuo", note: "标准音节补缺：nuo 对应 /ぬお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-640", chars: "虐,疟", kana: "にゅえ", romaji: "nüe", note: "标准音节补缺：nüe 对应 /にゅえ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-641", chars: "欧,偶,藕,呕", kana: "おう", romaji: "ou", note: "标准音节补缺：ou 对应 /おう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-642", chars: "拍,排,牌,派", kana: "ぱい", romaji: "pai", note: "标准音节补缺：pai 对应 /ぱい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-643", chars: "盘,判,盼,攀", kana: "ぱん", romaji: "pan", note: "标准音节补缺：pan 对应 /ぱん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-644", chars: "配,陪,培,赔", kana: "ぺい", romaji: "pei", note: "标准音节补缺：pei 对应 /ぺい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-645", chars: "喷,盆", kana: "ぺん", romaji: "pen", note: "标准音节补缺：pen 对应 /ぺん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-646", chars: "批,皮,披,匹", kana: "ぴ", romaji: "pi", note: "标准音节补缺：pi 对应 /ぴ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-647", chars: "瞥", kana: "ぴえ", romaji: "pie", note: "标准音节补缺：pie 对应 /ぴえ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-648", chars: "坡,破,婆,迫", kana: "ぽ", romaji: "po", note: "标准音节补缺：po 对应 /ぽ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-649", chars: "剖", kana: "ぽう", romaji: "pou", note: "标准音节补缺：pou 对应 /ぽう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-650", chars: "普,谱,铺,葡", kana: "ぷ", romaji: "pu", note: "标准音节补缺：pu 对应 /ぷ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-651", chars: "恰,洽", kana: "ちあ", romaji: "qia", note: "标准音节补缺：qia 对应 /ちあ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-652", chars: "亲,琴,勤,秦", kana: "ちん", romaji: "qin", note: "标准音节补缺：qin 对应 /ちん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-653", chars: "穷,琼", kana: "ちょん", romaji: "qiong", note: "标准音节补缺：qiong 对应 /ちょん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-654", chars: "群,裙", kana: "ちゅん", romaji: "qun", note: "标准音节补缺：qun 对应 /ちゅん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-655", chars: "绕,扰", kana: "らお", romaji: "rao", note: "标准音节补缺：rao 对应 /らお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-656", chars: "仍,扔", kana: "れん", romaji: "reng", note: "标准音节补缺：reng 对应 /れん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-657", chars: "瑞,锐", kana: "るい", romaji: "rui", note: "标准音节补缺：rui 对应 /るい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-658", chars: "润", kana: "るん", romaji: "run", note: "标准音节补缺：run 对应 /るん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-659", chars: "若,弱", kana: "るお", romaji: "ruo", note: "标准音节补缺：ruo 对应 /るお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-660", chars: "洒,撒", kana: "さ", romaji: "sa", note: "标准音节补缺：sa 对应 /さ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-661", chars: "赛,塞", kana: "さい", romaji: "sai", note: "标准音节补缺：sai 对应 /さい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-662", chars: "桑,丧,嗓", kana: "さん", romaji: "sang", note: "标准音节补缺：sang 对应 /さん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-663", chars: "扫,嫂,骚", kana: "さお", romaji: "sao", note: "标准音节补缺：sao 对应 /さお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-664", chars: "森", kana: "せん", romaji: "sen", note: "标准音节补缺：sen 对应 /せん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-665", chars: "沙,杀,傻,纱", kana: "しゃ", romaji: "sha", note: "标准音节补缺：sha 对应 /しゃ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-666", chars: "晒", kana: "しゃい", romaji: "shai", note: "标准音节补缺：shai 对应 /しゃい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-667", chars: "", kana: "しぇい", romaji: "shei", note: "标准音节补缺：shei 对应 /しぇい/；“谁”的默认输出仍使用 shui。", source: "generated", soundStatus: "new" },
+  { id: "default-668", chars: "刷", kana: "しゅあ", romaji: "shua", note: "标准音节补缺：shua 对应 /しゅあ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-669", chars: "帅,摔,衰", kana: "しゅあい", romaji: "shuai", note: "标准音节补缺：shuai 对应 /しゅあい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-670", chars: "栓", kana: "しゅあん", romaji: "shuan", note: "标准音节补缺：shuan 对应 /しゅあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-671", chars: "双,爽,霜", kana: "しゅあん", romaji: "shuang", note: "标准音节补缺：shuang 对应 /しゅあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-672", chars: "顺,瞬", kana: "しゅん", romaji: "shun", note: "标准音节补缺：shun 对应 /しゅん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-673", chars: "搜,艘", kana: "そう", romaji: "sou", note: "标准音节补缺：sou 对应 /そう/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-674", chars: "孙,损", kana: "すん", romaji: "sun", note: "标准音节补缺：sun 对应 /すん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-675", chars: "谈,探,叹,坦", kana: "たん", romaji: "tan", note: "标准音节补缺：tan 对应 /たん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-676", chars: "桃,逃,陶,讨,套", kana: "たお", romaji: "tao", note: "标准音节补缺：tao 对应 /たお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-677", chars: "疼,腾,藤", kana: "てん", romaji: "teng", note: "标准音节补缺：teng 对应 /てん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-678", chars: "团", kana: "とぅあん", romaji: "tuan", note: "标准音节补缺：tuan 对应 /とぅあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-679", chars: "推,腿,退", kana: "とぅい", romaji: "tui", note: "标准音节补缺：tui 对应 /とぅい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-680", chars: "吞,屯", kana: "とぅん", romaji: "tun", note: "标准音节补缺：tun 对应 /とぅん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-681", chars: "脱,托,拖,妥", kana: "とぅお", romaji: "tuo", note: "标准音节补缺：tuo 对应 /とぅお/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-682", chars: "翁", kana: "うぇん", romaji: "weng", note: "标准音节补缺：weng 对应 /うぇん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-683", chars: "兄,胸,雄,熊", kana: "しょん", romaji: "xiong", note: "标准音节补缺：xiong 对应 /しょん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-684", chars: "赞,暂,咱", kana: "ざん", romaji: "zan", note: "标准音节补缺：zan 对应 /ざん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-685", chars: "脏,藏,葬", kana: "ざん", romaji: "zang", note: "标准音节补缺：zang 对应 /ざん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-686", chars: "贼", kana: "ぜい", romaji: "zei", note: "标准音节补缺：zei 对应 /ぜい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-687", chars: "炸,扎,渣,闸", kana: "じゃ", romaji: "zha", note: "标准音节补缺：zha 对应 /じゃ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-688", chars: "摘,宅,窄,债", kana: "じゃい", romaji: "zhai", note: "标准音节补缺：zhai 对应 /じゃい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-689", chars: "张,章,掌,账", kana: "じゃん", romaji: "zhang", note: "标准音节补缺：zhang 对应 /じゃん/；“长”的默认输出仍使用 chang。", source: "generated", soundStatus: "new" },
+  { id: "default-690", chars: "抓", kana: "じゅあ", romaji: "zhua", note: "标准音节补缺：zhua 对应 /じゅあ/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-691", chars: "拽", kana: "じゅあい", romaji: "zhuai", note: "标准音节补缺：zhuai 对应 /じゅあい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-692", chars: "转,专,砖,赚", kana: "じゅあん", romaji: "zhuan", note: "标准音节补缺：zhuan 对应 /じゅあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-693", chars: "装,庄,状,撞", kana: "じゅあん", romaji: "zhuang", note: "标准音节补缺：zhuang 对应 /じゅあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-694", chars: "追,坠,锥", kana: "じゅい", romaji: "zhui", note: "标准音节补缺：zhui 对应 /じゅい/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-695", chars: "总,宗,踪,综", kana: "ぞん", romaji: "zong", note: "标准音节补缺：zong 对应 /ぞん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-696", chars: "钻", kana: "ずあん", romaji: "zuan", note: "标准音节补缺：zuan 对应 /ずあん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-697", chars: "尊,遵", kana: "ずん", romaji: "zun", note: "标准音节补缺：zun 对应 /ずん/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-698", chars: "额,鹅", kana: "え", romaji: "e", note: "标准音节补缺：e 对应 /え/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-699", chars: "哈", kana: "は", romaji: "ha", note: "标准音节补缺：ha 对应 /は/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-700", chars: "哦", kana: "お", romaji: "o", note: "标准音节补缺：o 对应 /お/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-701", chars: "呀,压,牙", kana: "や", romaji: "ya", note: "标准音节补缺：ya 对应 /や/，请校对。", source: "generated", soundStatus: "new" },
+  { id: "default-702", chars: "哟", kana: "よ", romaji: "yo", note: "标准音节补缺：yo 对应 /よ/，请校对。", source: "generated", soundStatus: "new" },
 ];
-const ACTIVE_REVIEW_ROW_IDS = new Set(["default-438"]);
+const ACTIVE_REVIEW_ROW_IDS = new Set(Array.from({ length: 107 }, (_, index) => `default-${index + 596}`));
 const DEFAULT_PHRASE_ROWS = [
   { id: "phrase-0", phrase: "家人", kana: "かじん", romaji: "jia ren", note: "按音感拼接，家人直接按音译连写。", source: "generated" },
   { id: "phrase-1a", phrase: "同学", kana: "どうがく", romaji: "tong xue", note: "按音感拼接，保持原字音节节奏。", source: "generated" },
@@ -741,6 +980,41 @@ function saveMappings() {
     localStorage.setItem(MAKER_PHONETIC_ROWS_KEY, JSON.stringify(phoneticRows));
     localStorage.setItem(MAKER_PHRASE_ROWS_KEY, JSON.stringify(phraseRows));
   } catch {}
+  if (isAdminEditor && remoteMappingsReady) {
+    window.clearTimeout(remoteSaveTimer);
+    remoteSaveTimer = window.setTimeout(async () => {
+      try {
+        const response = await fetch("/api/mappings", {
+          method: "PUT",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phoneticRows }),
+        });
+        if (!response.ok) throw new Error("save failed");
+      } catch {
+        window.alert("规则已保存到本机，但未能同步到线上，请确认管理员仍处于登录状态。");
+      }
+    }, 500);
+  }
+}
+
+const isAdminEditor = location.pathname.startsWith("/admin/editor");
+let remoteMappingsReady = false;
+let remoteSaveTimer = 0;
+
+async function loadRemoteMappings() {
+  try {
+    const response = await fetch("/api/mappings", { cache: "no-store" });
+    if (!response.ok) return;
+    const data = await response.json();
+    if (Array.isArray(data.phoneticRows) && data.phoneticRows.length) {
+      phoneticRows = mergeEditablePhoneticRows(ensurePolyphonicReadings(withGeneratedDefaults(data.phoneticRows, DEFAULT_PHONETIC_ROWS)));
+      normalizeMappings();
+      try { localStorage.setItem(MAKER_PHONETIC_ROWS_KEY, JSON.stringify(phoneticRows)); } catch {}
+      renderMappingEditors();
+    }
+  } catch {}
+  finally { remoteMappingsReady = true; }
 }
 
 function loadMappings() {
@@ -894,6 +1168,7 @@ function pickExplicitKanaForPhrase(text, startIndex) {
 
 const MAKER_MODE_KEY = "otowai-maker-mode";
 const MAKER_HISTORY_KEY = "otowai-maker-history";
+const MAKER_VOICE_KEY = "otowai-maker-japanese-voice";
 const MAKER_HISTORY_LIMIT = 20;
 
 let category = "全部";
@@ -937,10 +1212,10 @@ function estimateSpeechUnits(text) {
 }
 
 function alignSpeechRate(referenceText, targetKana) {
-  const baseRate = 0.72;
+  const baseRate = 0.9;
   const referenceUnits = estimateSpeechUnits(referenceText || "");
   const targetUnits = estimateSpeechUnits((targetKana || "").replace(/\s+/g, ""));
-  return clampNumber(baseRate * (referenceUnits / targetUnits), 0.45, 1.85);
+  return clampNumber(baseRate * (targetUnits / referenceUnits), 0.35, 3.5);
 }
 
 function pickFallbackMora(char, variant = 0, index = 0) {
@@ -1012,19 +1287,150 @@ function saveMakerHistory(history) {
   return history.slice(0, MAKER_HISTORY_LIMIT);
 }
 
-function speak(kana, button, referenceText) {
-  if (!("speechSynthesis" in window)) return;
+function getJapaneseVoices() {
+  if (!("speechSynthesis" in window)) return null;
+  const femaleNames = /kyoko|nanami|haruka|o-ren|female|女性|女声/i;
+  return speechSynthesis.getVoices()
+    .filter((item) => /^ja(?:-|_)/i.test(item.lang))
+    .sort((a, b) => Number(femaleNames.test(b.name)) - Number(femaleNames.test(a.name)));
+}
+
+function getJapaneseVoice(preferredVoiceURI = "") {
+  const voices = getJapaneseVoices() || [];
+  let savedVoiceURI = preferredVoiceURI;
+  if (!savedVoiceURI) {
+    try { savedVoiceURI = localStorage.getItem(MAKER_VOICE_KEY) || ""; } catch {}
+  }
+  return voices.find((item) => item.voiceURI === savedVoiceURI) || voices[0] || null;
+}
+
+const speechTimingCache = new Map();
+
+function getVoiceForLanguage(language, preferredVoiceURI = "") {
+  if (!("speechSynthesis" in window)) return null;
+  if (/^ja(?:-|_)/i.test(language)) return getJapaneseVoice(preferredVoiceURI);
+  const languagePrefix = language.split(/[-_]/)[0];
+  const voices = speechSynthesis.getVoices().filter((voice) => voice.lang.toLowerCase().startsWith(languagePrefix.toLowerCase()));
+  return voices.find((voice) => voice.voiceURI === preferredVoiceURI)
+    || voices.find((voice) => /^zh(?:-|_)CN/i.test(voice.lang))
+    || voices[0]
+    || null;
+}
+
+function estimateSpeechSeconds(text, language = "zh-CN") {
+  const unitsPerSecond = /^ja(?:-|_)/i.test(language) ? 4.7 : 4.1;
+  return Math.max(0.45, estimateSpeechUnits(text) / unitsPerSecond);
+}
+
+function measureSpeechDuration(text, language, preferredVoiceURI = "") {
+  return new Promise((resolve, reject) => {
+    if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window) || !text.trim()) {
+      reject(new Error("speech synthesis unavailable"));
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = language;
+    utterance.rate = 1;
+    utterance.volume = 0;
+    const selectedVoice = getVoiceForLanguage(language, preferredVoiceURI);
+    if (selectedVoice) utterance.voice = selectedVoice;
+
+    let startedAt = 0;
+    let settled = false;
+    let timeoutId = 0;
+    const finish = (duration, error) => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timeoutId);
+      if (error) reject(error);
+      else resolve(Math.max(0.1, duration));
+    };
+
+    utterance.onstart = () => { startedAt = performance.now(); };
+    utterance.onend = () => {
+      const elapsed = startedAt ? (performance.now() - startedAt) / 1000 : estimateSpeechSeconds(text, language);
+      finish(elapsed);
+    };
+    utterance.onerror = () => finish(0, new Error("speech measurement failed"));
+
+    const timeoutMs = clampNumber(estimateSpeechSeconds(text, language) * 3200 + 5000, 8000, 36000);
+    timeoutId = window.setTimeout(() => {
+      speechSynthesis.cancel();
+      finish(0, new Error("speech measurement timed out"));
+    }, timeoutMs);
+
+    speechSynthesis.cancel();
+    window.setTimeout(() => {
+      if (settled) return;
+      speechSynthesis.speak(utterance);
+      speechSynthesis.resume();
+    }, 90);
+  });
+}
+
+async function calibrateSpeechTiming(referenceText, targetKana, preferredVoiceURI = "") {
+  const cacheKey = [referenceText, targetKana, preferredVoiceURI].join("\u0001");
+  if (speechTimingCache.has(cacheKey)) return speechTimingCache.get(cacheKey);
+
+  const fallbackReferenceSeconds = estimateSpeechSeconds(referenceText, "zh-CN");
+  const fallbackTargetSeconds = estimateSpeechSeconds(targetKana, "ja-JP");
+  let timing;
+  try {
+    const referenceSeconds = await measureSpeechDuration(referenceText, "zh-CN");
+    const targetSeconds = await measureSpeechDuration(targetKana, "ja-JP", preferredVoiceURI);
+    timing = {
+      referenceSeconds,
+      targetSeconds,
+      matchedRate: clampNumber(targetSeconds / referenceSeconds, 0.35, 3.5),
+      measured: true,
+    };
+  } catch {
+    timing = {
+      referenceSeconds: fallbackReferenceSeconds,
+      targetSeconds: fallbackTargetSeconds,
+      matchedRate: alignSpeechRate(referenceText, targetKana),
+      measured: false,
+    };
+  }
+  speechTimingCache.set(cacheKey, timing);
+  return timing;
+}
+
+function playSpeech(text, rate, handlers = {}) {
+  if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+    handlers.onerror?.();
+    window.alert("当前浏览器不支持系统朗读，请尝试用手机系统浏览器打开。");
+    return;
+  }
   speechSynthesis.cancel();
-  const voice = new SpeechSynthesisUtterance(kana);
-  voice.lang = "ja-JP";
+  window.setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "ja-JP";
+    utterance.rate = rate;
+    const japaneseVoice = getJapaneseVoice(handlers.voiceURI);
+    if (japaneseVoice) utterance.voice = japaneseVoice;
+    utterance.onstart = handlers.onstart || null;
+    utterance.onend = handlers.onend || null;
+    utterance.onerror = () => {
+      handlers.onerror?.();
+      window.alert("未能调用日语语音。请关闭手机静音模式，或改用 Safari / Chrome 打开。");
+    };
+    speechSynthesis.speak(utterance);
+    speechSynthesis.resume();
+  }, 120);
+}
+
+function speak(kana, button, referenceText) {
   const baseRate = typeof referenceText === "string"
     ? alignSpeechRate(referenceText, kana)
     : 0.72;
   const rate = clampNumber(baseRate, 0.45, 2);
-  voice.rate = rate;
-  voice.onstart = () => button.innerHTML = "<span>◼</span> 正在聆听";
-  voice.onend = () => button.innerHTML = "<span>▶</span> 听听声音";
-  speechSynthesis.speak(voice);
+  playSpeech(kana, rate, {
+    onstart: () => { button.innerHTML = "<span>◼</span> 正在聆听"; },
+    onend: () => { button.innerHTML = "<span>▶</span> 听听声音"; },
+    onerror: () => { button.innerHTML = "<span>▶</span> 听听声音"; },
+  });
 }
 
 function formatHistoryTime(createdAt) {
@@ -1179,18 +1585,25 @@ function bindMappingEditors() {
   const resetButton = document.querySelector("#maker-reset-mappings");
   if (addPhonetic) {
     addPhonetic.onclick = () => {
-      phoneticRows = [...phoneticRows, {
-        id: `phonetic-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      const rowId = `phonetic-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+      phoneticRows = [{
+        id: rowId,
         chars: "",
         kana: "",
         romaji: "",
         note: "",
         source: "custom",
         manual: true,
-      }];
+      }, ...phoneticRows];
+      if (mappingSearch) mappingSearch.value = "";
       normalizeMappings();
       saveMappings();
       renderMappingEditors();
+      const input = document.querySelector(`tr[data-row-id="${rowId}"] input[data-field="romaji"]`);
+      if (input) {
+        input.scrollIntoView({ block: "center", behavior: "smooth" });
+        input.focus();
+      }
     };
   }
   if (addPhrase) {
@@ -1225,10 +1638,12 @@ async function bindAdminMappingView() {
   const config = document.querySelector("#maker-config");
   const toggle = document.querySelector("#maker-admin-toggle");
   if (!config || !toggle) return;
-  let enabled = false;
+  let enabled = isAdminEditor;
   try {
-    const response = await fetch("/api/admin-session", { credentials: "same-origin", cache: "no-store" });
-    enabled = response.ok && (await response.json()).isOwner === true;
+    if (!enabled) {
+      const response = await fetch("/api/admin-session", { credentials: "same-origin", cache: "no-store" });
+      enabled = response.ok && (await response.json()).isOwner === true;
+    }
   } catch {}
   if (!enabled) {
     toggle.hidden = true;
@@ -1385,8 +1800,11 @@ function renderMaker(result) {
     </div>
     <p class="maker-meta">学习匹配率：${result.confidence}% · ${result.note}</p>
     <div class="maker-playback-control">
-      <label for="maker-playback-rate">对应句朗读速度：<span id="maker-playback-rate-value">1.0x</span></label>
+      <label for="maker-playback-rate">匹配后微调：<span id="maker-playback-rate-value">1.0x</span></label>
       <input id="maker-playback-rate" type="range" min="0.5" max="1.8" step="0.1" value="1">
+      <label for="maker-voice">朗读声音</label>
+      <select id="maker-voice"><option value="">正在载入日语女声…</option></select>
+      <p id="maker-timing-status" class="maker-timing-status" aria-live="polite">首次朗读时会静音测量中文原句与假名的时长。</p>
     </div>
     <div class="maker-output-actions">
       <button id="maker-copy">复制结果</button>
@@ -1399,7 +1817,44 @@ function renderMaker(result) {
 
   const playbackSlider = document.querySelector("#maker-playback-rate");
   const playbackValue = document.querySelector("#maker-playback-rate-value");
-  playbackSlider.oninput = () => { playbackValue.textContent = `${Number(playbackSlider.value).toFixed(1)}x`; };
+  const voiceSelect = document.querySelector("#maker-voice");
+  const timingStatus = document.querySelector("#maker-timing-status");
+  let currentTiming = null;
+  const updateTimingStatus = () => {
+    if (!currentTiming) return;
+    const adjustedRate = clampNumber(currentTiming.matchedRate * Number(playbackSlider.value), 0.25, 4);
+    const expectedSeconds = currentTiming.targetSeconds / adjustedRate;
+    timingStatus.textContent = `${currentTiming.measured ? "实测" : "估算"}中文 ${currentTiming.referenceSeconds.toFixed(1)} 秒 · 自动语速 ${currentTiming.matchedRate.toFixed(2)}x · 当前预计 ${expectedSeconds.toFixed(1)} 秒`;
+  };
+  playbackSlider.oninput = () => {
+    playbackValue.textContent = `${Number(playbackSlider.value).toFixed(1)}x`;
+    updateTimingStatus();
+  };
+  const refreshVoices = () => {
+    const voices = getJapaneseVoices() || [];
+    if (!voices.length) return;
+    let savedVoiceURI = "";
+    try { savedVoiceURI = localStorage.getItem(MAKER_VOICE_KEY) || ""; } catch {}
+    const selected = voices.some((item) => item.voiceURI === savedVoiceURI) ? savedVoiceURI : voices[0].voiceURI;
+    voiceSelect.innerHTML = voices.map((item, index) => `<option value="${escapeHtml(item.voiceURI)}">${index === 0 ? "女声优先 · " : ""}${escapeHtml(item.name)}</option>`).join("");
+    voiceSelect.value = selected;
+  };
+  refreshVoices();
+  if ("speechSynthesis" in window) speechSynthesis.addEventListener("voiceschanged", refreshVoices, { once: true });
+  voiceSelect.onchange = () => {
+    try { localStorage.setItem(MAKER_VOICE_KEY, voiceSelect.value); } catch {}
+    currentTiming = null;
+    timingStatus.textContent = "声音已更换，下次朗读时会重新测量时长。";
+  };
+
+  const getMatchedPlaybackRate = async () => {
+    if (!currentTiming) {
+      timingStatus.textContent = "正在静音测量中文原句与假名，请稍候…";
+      currentTiming = await calibrateSpeechTiming(result.input, result.kana, voiceSelect.value);
+    }
+    updateTimingStatus();
+    return clampNumber(currentTiming.matchedRate * Number(playbackSlider.value), 0.25, 4);
+  };
 
   document.querySelector("#maker-copy").onclick = () => {
     if (!("clipboard" in navigator)) return;
@@ -1413,17 +1868,18 @@ function renderMaker(result) {
     }, 1600);
   };
 
-  document.querySelector("#maker-speak").onclick = () => {
+  document.querySelector("#maker-speak").onclick = async () => {
     const button = document.querySelector("#maker-speak");
-    if (!("speechSynthesis" in window)) return;
-    speechSynthesis.cancel();
-    const voice = new SpeechSynthesisUtterance(result.kana);
-    voice.lang = "ja-JP";
-    voice.rate = clampNumber(alignSpeechRate(result.input, result.kana) * Number(playbackSlider.value), 0.45, 2);
-    button.textContent = "正在聆听";
-    voice.onend = () => { button.textContent = "朗读生成句子"; };
-    voice.onerror = () => { button.textContent = "朗读生成句子"; };
-    speechSynthesis.speak(voice);
+    button.disabled = true;
+    button.textContent = "正在匹配朗读时长";
+    const rate = await getMatchedPlaybackRate();
+    button.disabled = false;
+    playSpeech(result.kana, rate, {
+      voiceURI: voiceSelect.value,
+      onstart: () => { button.textContent = "正在聆听"; },
+      onend: () => { button.textContent = "朗读生成句子"; },
+      onerror: () => { button.textContent = "朗读生成句子"; },
+    });
     };
 
   document.querySelector("#maker-save-audio").onclick = async () => {
@@ -1457,7 +1913,15 @@ function renderMaker(result) {
       speechSynthesis.cancel();
       const voice = new SpeechSynthesisUtterance(result.kana);
       voice.lang = "ja-JP";
-      voice.rate = clampNumber(alignSpeechRate(result.input, result.kana) * Number(playbackSlider.value), 0.45, 2);
+      const savedTiming = currentTiming || {
+        matchedRate: alignSpeechRate(result.input, result.kana),
+        targetSeconds: estimateSpeechSeconds(result.kana, "ja-JP"),
+        referenceSeconds: estimateSpeechSeconds(result.input, "zh-CN"),
+        measured: false,
+      };
+      voice.rate = clampNumber(savedTiming.matchedRate * Number(playbackSlider.value), 0.25, 4);
+      const japaneseVoice = getJapaneseVoice(voiceSelect.value);
+      if (japaneseVoice) voice.voice = japaneseVoice;
       voice.onstart = () => { button.textContent = "正在录制朗读"; };
       voice.onend = () => window.setTimeout(() => recorder.stop(), 180);
       voice.onerror = () => recorder.stop();
@@ -1702,6 +2166,7 @@ document.querySelector("#maker-limit-3").addEventListener("change", renderHistor
 
 makerHistory = loadMakerHistory();
 loadMappings();
+loadRemoteMappings();
 loadMakerMode();
 bindMakerModeSwitches();
 bindMappingEditors();
