@@ -1,0 +1,65 @@
+[
+  {
+    "id": "classic-taohuayuan",
+    "source": "忽逢桃花林",
+    "context": "陶渊明《桃花源记》",
+    "tags": ["古文", "基准样本"],
+    "mustWarn": true
+  },
+  {
+    "id": "poem-shan-you-mu-xi",
+    "source": "山有木兮木有枝",
+    "context": "《越人歌》",
+    "tags": ["诗句", "重复字"]
+  },
+  {
+    "id": "polyphonic-xing",
+    "source": "银行和行走",
+    "context": "同字多音测试",
+    "tags": ["多音字", "语境"]
+  },
+  {
+    "id": "same-sound-wo",
+    "source": "我和窝",
+    "context": "同音字测试",
+    "tags": ["同音字", "短词"]
+  },
+  {
+    "id": "long-sentence",
+    "source": "他和她今天同学聚会",
+    "context": "日常句子",
+    "tags": ["长句", "重复音节"]
+  },
+  {
+    "id": "place-shanghai",
+    "source": "上海",
+    "context": "地名",
+    "tags": ["地名", "专名"]
+  },
+  {
+    "id": "semantic-trap-shaonian",
+    "source": "少年",
+    "context": "汉字词",
+    "tags": ["语义陷阱", "真实日语词"]
+  },
+  {
+    "id": "punctuation",
+    "source": "清风、明月！",
+    "context": "标点保留测试",
+    "tags": ["标点", "诗意短句"]
+  },
+  {
+    "id": "rare-character",
+    "source": "黯然销魂",
+    "context": "生僻字和成语",
+    "tags": ["成语", "生僻字"],
+    "mustWarn": true
+  },
+  {
+    "id": "empty-input",
+    "source": "",
+    "context": "无效输入",
+    "tags": ["边界条件"],
+    "mustReject": true
+  }
+]

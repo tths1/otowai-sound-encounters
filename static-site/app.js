@@ -1,10 +1,57 @@
 const entries = [
-  { chinese: "忽逢桃花林", kana: "ふーふん たお はりん", romaji: "fu fun tao ha rin", source: "陶渊明《桃花源记》", category: "古文", score: 92, note: "像一阵风把桃花源的入口吹进了日语假名里。" },
-  { chinese: "山有木兮木有枝", kana: "さん よう むー しー むー よう じー", romaji: "san yō mū shī mū yō jī", source: "《越人歌》", category: "诗词", score: 81, note: "舒展的元音，让古老诗句有了另一种节拍。" },
-  { chinese: "清风明月", kana: "ちん ふう みん ゆえ", romaji: "chin fū min yue", source: "汉字音联想", category: "诗词", score: 86, note: "汉字音读与中文发音互相映照，清亮而短促。" },
-  { chinese: "少年", kana: "しょうねん", romaji: "shōnen", source: "汉字词", category: "日常", score: 95, note: "同一组汉字，在两种语言里保留了熟悉的回声。" },
-  { chinese: "上海", kana: "しゃんはい", romaji: "shan hai", source: "地名", category: "地名", score: 98, note: "日语对中文地名的音译，几乎可以隔岸相认。" },
-  { chinese: "青山", kana: "せいざん", romaji: "seizan", source: "汉字音联想", category: "地名", score: 78, note: "不是完全相同，却像两座山在声音里遥相呼应。" }
+  { chinese: "忽逢桃花林", kana: "ふーふん たお はりん", romaji: "fu fun tao ha rin", source: "陶渊明《桃花源记》", category: "古文", note: "像一阵风把桃花源的入口吹进了日语假名里。" },
+  { chinese: "山有木兮木有枝", kana: "さん よう むー しー むー よう じー", romaji: "san yō mū shī mū yō jī", source: "《越人歌》", category: "诗词", note: "舒展的元音，让古老诗句有了另一种节拍。" },
+  { chinese: "清风明月", kana: "ちん ふう みん ゆえ", romaji: "chin fū min yue", source: "汉字音联想", category: "诗词", note: "汉字音读与中文发音互相映照，清亮而短促。" },
+  {"chinese":"床前明月光，疑是地上霜。","kana":"ちゅあん ちえん みん ゆえ ぐあん ， い し でい しあん しゅあん 。","romaji":"","source":"李白《静夜思》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"举头望明月，低头思故乡。","kana":"じゅ とう わん みん ゆえ ， でい とう す こ しゃん 。","romaji":"","source":"李白《静夜思》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"春眠不觉晓，处处闻啼鸟。","kana":"ちゅん みえん ぶ じゅえ しょう ， ちゅつ ちゅつ ぶん てぃ にゃお 。","romaji":"","source":"孟浩然《春晓》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"夜来风雨声，花落知多少。","kana":"や らい ふう ゆ せい ， ふは るお し と しゃお 。","romaji":"","source":"孟浩然《春晓》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"白日依山尽，黄河入海流。","kana":"ばい り い さん きん ， ふあん へ りう はい りゅう 。","romaji":"","source":"王之涣《登鹳雀楼》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"欲穷千里目，更上一层楼。","kana":"ゆ ちょん ちえん り む ， げん しあん い つぇん ろう 。","romaji":"","source":"王之涣《登鹳雀楼》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"空山不见人，但闻人语响。","kana":"くう さん ぶ けん じん ， だん ぶん じん ゆ しゃん 。","romaji":"","source":"王维《鹿柴》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"返景入深林，复照青苔上。","kana":"ふぁん じん りう しぇん りん ， ふ じゃお じょう たい しあん 。","romaji":"","source":"王维《鹿柴》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"独坐幽篁里，弹琴复长啸。","kana":"どぅ ぞ ゆう ふあん り ， たん ちん ふ ちょう しょう 。","romaji":"","source":"王维《竹里馆》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"深林人不知，明月来相照。","kana":"しぇん りん じん ぶ し ， みん ゆえ らい しゃん じゃお 。","romaji":"","source":"王维《竹里馆》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"红豆生南国，春来发几枝。","kana":"ほん どう せい なん ご ， ちゅん らい ふあ じ し 。","romaji":"","source":"王维《相思》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"愿君多采撷，此物最相思。","kana":"えん じゅん と さい しえ ， つ う さい しゃん す 。","romaji":"","source":"王维《相思》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"山中相送罢，日暮掩柴扉。","kana":"さん ちゅう しゃん そん は ， り む えん ちゃい ひ 。","romaji":"","source":"王维《送别》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"春草明年绿，王孙归不归。","kana":"ちゅん そう みん ねん りゅ ， わん すん ぐい ぶ ぐい 。","romaji":"","source":"王维《送别》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"君自故乡来，应知故乡事。","kana":"じゅん ず こ しゃん らい ， いん し こ しゃん し 。","romaji":"","source":"王维《杂诗三首·其二》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"来日绮窗前，寒梅著花未。","kana":"らい り き ちゅあん ちえん ， はん めい じゅお ふは うぇい 。","romaji":"","source":"王维《杂诗三首·其二》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"绿蚁新醅酒，红泥小火炉。","kana":"りゅ い しん ぺい きゅう ， ほん に しょう ほ る 。","romaji":"","source":"白居易《问刘十九》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"晚来天欲雪，能饮一杯无？","kana":"わん らい てん ゆ しうえ ， のう いん い べ う ？","romaji":"","source":"白居易《问刘十九》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"向晚意不适，驱车登古原。","kana":"しゃん わん い ぶ し ， ちう ちぇ でん こ えん 。","romaji":"","source":"李商隐《登乐游原》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"夕阳无限好，只是近黄昏。","kana":"し やん う しえん はお ， し し きん ふあん ふん 。","romaji":"","source":"李商隐《登乐游原》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"移舟泊烟渚，日暮客愁新。","kana":"い じょう ぼ えん じゅ ， り む か ちょう しん 。","romaji":"","source":"孟浩然《宿建德江》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"野旷天低树，江清月近人。","kana":"や くあん てん でい しゅ ， じゃん じょう ゆえ きん じん 。","romaji":"","source":"孟浩然《宿建德江》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"千山鸟飞绝，万径人踪灭。","kana":"ちえん さん にゃお ひ じゅえ ， わん じん じん ぞん みえ 。","romaji":"","source":"柳宗元《江雪》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"孤舟蓑笠翁，独钓寒江雪。","kana":"こ じょう すお り うぇん ， どぅ でぃあお はん じゃん しうえ 。","romaji":"","source":"柳宗元《江雪》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"松下问童子，言师采药去。","kana":"そん しあ ぶん と ず ， えん し さい よう ちう 。","romaji":"","source":"贾岛《寻隐者不遇》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"只在此山中，云深不知处。","kana":"し さい つ さん ちゅう ， ゆん しぇん ぶ し ちゅつ 。","romaji":"","source":"贾岛《寻隐者不遇》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"众鸟高飞尽，孤云独去闲。","kana":"ちゅう にゃお こう ひ きん ， こ ゆん どぅ ちう しえん 。","romaji":"","source":"李白《独坐敬亭山》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"相看两不厌，只有敬亭山。","kana":"しゃん かん りゃん ぶ えん ， し ゆう じん てい さん 。","romaji":"","source":"李白《独坐敬亭山》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"美人卷珠帘，深坐颦蛾眉。","kana":"めい じん じゅあん じゅ れん ， しぇん ぞ ぴん え めい 。","romaji":"","source":"李白《怨情》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"但见泪痕湿，不知心恨谁。","kana":"だん けん れい へん し ， ぶ し しん へん すい 。","romaji":"","source":"李白《怨情》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"寥落古行宫，宫花寂寞红。","kana":"りあお るお こ しん ごん ， ごん ふは じ も ほん 。","romaji":"","source":"元稹《行宫》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"白头宫女在，闲坐说玄宗。","kana":"ばい とう ごん にゅ さい ， しえん ぞ しゅお しゅあん ぞん 。","romaji":"","source":"元稹《行宫》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"三日入厨下，洗手作羹汤。","kana":"さん り りう しゅつ しあ ， し しょう ぞ げん たん 。","romaji":"","source":"王建《新嫁娘词》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"未谙姑食性，先遣小姑尝。","kana":"うぇい あん こ し しん ， しえん ちえん しょう こ ちょう 。","romaji":"","source":"王建《新嫁娘词》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"岭外音书断，经冬复历春。","kana":"りん わい いん しゅ どぅあん ， じん どう ふ り ちゅん 。","romaji":"","source":"李频《渡汉江》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"近乡情更怯，不敢问来人。","kana":"きん しゃん じょう げん ちえ ， ぶ がん ぶん らい じん 。","romaji":"","source":"李频《渡汉江》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"功盖三分国，名成八阵图。","kana":"ごん がい さん ふん ご ， みん つえん は しん とぅ 。","romaji":"","source":"杜甫《八阵图》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"江流石不转，遗恨失吞吴。","kana":"じゃん りゅう し ぶ じゅあん ， い へん し とぅん う 。","romaji":"","source":"杜甫《八阵图》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"怀君属秋夜，散步咏凉天。","kana":"ふぁい じゅん じゅ ちゅう や ， さん ぶ よん りゃん てん 。","romaji":"","source":"韦应物《秋夜寄丘员外》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"空山松子落，幽人应未眠。","kana":"くう さん そん ず るお ， ゆう じん いん うぇい みえん 。","romaji":"","source":"韦应物《秋夜寄丘员外》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"终南阴岭秀，积雪浮云端。","kana":"ちゅう なん いん りん しゅう ， じ しうえ ふ ゆん どぅあん 。","romaji":"","source":"祖咏《终南望余雪》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"林表明霁色，城中增暮寒。","kana":"りん びょう みん じ せ ， つえん ちゅう ぜん む はん 。","romaji":"","source":"祖咏《终南望余雪》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"苍苍竹林寺，杳杳钟声晚。","kana":"つぁん つぁん じゅ りん す ， よう よう ちゅう せい わん 。","romaji":"","source":"刘长卿《送灵澈上人》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"荷笠带斜阳，青山独归远。","kana":"へ り だい しえ やん ， じょう さん どぅ ぐい えん 。","romaji":"","source":"刘长卿《送灵澈上人》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"泠泠七弦上，静听松风寒。","kana":"りん りん き しえん しあん ， じん てい そん ふう はん 。","romaji":"","source":"刘长卿《听弹琴》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"古调虽自爱，今人多不弹。","kana":"こ でぃあお すい ず あい ， きん じん と ぶ たん 。","romaji":"","source":"刘长卿《听弹琴》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"孤云将野鹤，岂向人间住。","kana":"こ ゆん じゃん や へ ， き しゃん じん けん じゅ 。","romaji":"","source":"刘长卿《送上人》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"莫买沃洲山，时人已知处。","kana":"も まい うぉ じょう さん ， し じん い し ちゅつ 。","romaji":"","source":"刘长卿《送上人》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"玉阶生白露，夜久侵罗袜。","kana":"ゆ かい せい ばい る ， や きゅう ちん るお わ 。","romaji":"","source":"李白《玉阶怨》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
+  {"chinese":"却下水晶帘，玲珑望秋月。","kana":"ちゅえ しあ すい じん れん ， りん ろん わん ちゅう ゆえ 。","romaji":"","source":"李白《玉阶怨》","category":"诗词","note":"逐字拟音 · 已校对诗词集"},
 ];
 
 const DEFAULT_PHONETIC_ROWS = [
@@ -975,6 +1022,20 @@ function normalizeMappings() {
   phraseKanaEntries = Object.keys(phraseKanaMap).sort((a, b) => b.length - a.length);
 }
 
+// Freeze the pre-expansion review baseline so purple survives reloads and edits.
+let dictionaryBaseline = [];
+function expandReadingDictionary(baselineOverride) {
+  if (!window.OtowaiReadings) return;
+  let baseline = baselineOverride;
+  if (!baseline) try { baseline = JSON.parse(localStorage.getItem('otowai-dictionary-baseline-v1') || '[]'); } catch {}
+  if (!Array.isArray(baseline) || !baseline.length || baseline.some(row=>!row || typeof row.chars!=='string' || typeof row.romaji!=='string')) {
+    baseline = phoneticRows.map(row => ({chars:row.chars,romaji:row.romaji}));
+  }
+  dictionaryBaseline = baseline.map(row=>({chars:row.chars,romaji:row.romaji}));
+  try { localStorage.setItem('otowai-dictionary-baseline-v1', JSON.stringify(dictionaryBaseline)); } catch {}
+  phoneticRows = window.OtowaiReadings.expand(phoneticRows, baseline);
+}
+
 function saveMappings() {
   try {
     localStorage.setItem(MAKER_PHONETIC_ROWS_KEY, JSON.stringify(phoneticRows));
@@ -988,7 +1049,7 @@ function saveMappings() {
           method: "PUT",
           credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ phoneticRows }),
+          body: JSON.stringify({ phoneticRows, dictionaryBaseline }),
         });
         if (!response.ok) throw new Error("save failed");
       } catch {
@@ -1009,6 +1070,7 @@ async function loadRemoteMappings() {
     const data = await response.json();
     if (Array.isArray(data.phoneticRows) && data.phoneticRows.length) {
       phoneticRows = mergeEditablePhoneticRows(ensurePolyphonicReadings(withGeneratedDefaults(data.phoneticRows, DEFAULT_PHONETIC_ROWS)));
+      expandReadingDictionary(data.dictionaryBaseline || data.phoneticRows.map(row=>({chars:row.chars,romaji:row.romaji})));
       normalizeMappings();
       try { localStorage.setItem(MAKER_PHONETIC_ROWS_KEY, JSON.stringify(phoneticRows)); } catch {}
       renderMappingEditors();
@@ -1049,9 +1111,10 @@ function loadMappings() {
       .filter(Boolean);
 
     parsedPhonetic.forEach((row) => {
+      if (row.source === "generated" && row.manual !== true) return;
       const baseline = DEFAULT_PHONETIC_ROWS.find((item) => item.id === row.id);
       const normalizeChars = (value) => String(value || "").split(/[,，]/).map((item) => item.trim()).filter(Boolean).sort().join(",");
-      if (!baseline || row.manual === true || row.kana !== baseline.kana || row.romaji !== baseline.romaji || normalizeChars(row.chars) !== normalizeChars(baseline.chars)) {
+      if (!baseline || row.manual === true || row.kana !== baseline.kana || row.romaji !== baseline.romaji || (!localStorage.getItem('otowai-dictionary-baseline-v1') && normalizeChars(row.chars) !== normalizeChars(baseline.chars))) {
         row.manual = true;
         row.source = "custom";
       }
@@ -1097,6 +1160,7 @@ function loadMappings() {
     }
   } catch {}
 
+  expandReadingDictionary();
   normalizeMappings();
   saveMappings();
   renderMappingEditors();
@@ -1171,7 +1235,8 @@ const MAKER_HISTORY_KEY = "otowai-maker-history";
 const MAKER_VOICE_KEY = "otowai-maker-japanese-voice";
 const MAKER_HISTORY_LIMIT = 20;
 
-let category = "全部";
+let collectionPage = 1;
+const COLLECTION_PAGE_SIZE = 4;
 let daily = 0;
 const entriesEl = document.querySelector("#entries");
 
@@ -1450,19 +1515,27 @@ function formatHistoryTime(createdAt) {
 
 function bindSpeakers() {
   document.querySelectorAll(".speak").forEach(button => {
-    button.onclick = () => speak(button.dataset.kana, button);
+    button.onclick = () => CollectionAudio.play(button.dataset.kana, button);
   });
 }
 
 function render() {
   const query = document.querySelector("#search").value.trim().toLowerCase();
   const filtered = entries.filter(entry =>
-    (category === "全部" || entry.category === category) &&
     (!query || `${entry.chinese} ${entry.kana} ${entry.romaji} ${entry.source}`.toLowerCase().includes(query))
   );
-  entriesEl.innerHTML = filtered.length ? filtered.map((entry, index) => `
+  const totalPages = Math.ceil(filtered.length / COLLECTION_PAGE_SIZE);
+  collectionPage = Math.max(1, Math.min(collectionPage, totalPages || 1));
+  const offset = (collectionPage - 1) * COLLECTION_PAGE_SIZE;
+  document.querySelector("#collection-total").textContent = `收录 ${entries.length} 个声音偶遇 · 持续生长中`;
+  document.querySelector("#collection-page-status").textContent = totalPages
+    ? `第 ${collectionPage} / ${totalPages} 页 · 共 ${filtered.length} 条`
+    : "没有匹配的词条";
+  document.querySelector("#collection-prev").disabled = collectionPage <= 1;
+  document.querySelector("#collection-next").disabled = collectionPage >= totalPages;
+  entriesEl.innerHTML = filtered.length ? filtered.slice(offset, offset + COLLECTION_PAGE_SIZE).map((entry, index) => `
     <article class="entry-card">
-      <div class="entry-top"><span>${String(index + 1).padStart(2,"0")}</span><em>${entry.category}</em></div>
+      <div class="entry-top"><span>${String(offset + index + 1).padStart(2,"0")}</span><em>${entry.category}</em></div>
       <h3>${entry.chinese}</h3><div class="mini-wave" aria-hidden="true"><i></i><b>〜</b><i></i></div>
       <p class="entry-kana">${entry.kana}</p><p class="romaji">${entry.romaji}</p>
       <p class="entry-note">${entry.note}</p>
@@ -1490,14 +1563,14 @@ function renderMappingEditors() {
   const searchInput = document.querySelector("#maker-mapping-search");
   const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
   const matches = (row, fields) => !query || fields.some((field) => String(row[field] || "").toLowerCase().includes(query));
-  const visiblePhoneticRows = phoneticRows.filter((row) => matches(row, ["chars", "kana", "romaji", "note"]));
+  const visiblePhoneticRows = phoneticRows.filter((row) => matches(row, ["chars", "kana", "romaji", "note"]) || window.OtowaiReadings?.additions(row).some(char => char.includes(query)));
   const visiblePhraseRows = phraseRows.filter((row) => matches(row, ["phrase", "kana", "romaji", "note"]));
 
   phoneticBody.innerHTML = visiblePhoneticRows
     .map(
       (row) => `
-        <tr class="${ACTIVE_REVIEW_ROW_IDS.has(row.id) || row.id.startsWith("generated-") ? "mapping-row-new-sound" : ""}" data-row-id="${escapeHtml(row.id)}" data-row-type="phonetic">
-          <td><input value="${escapeHtml(row.romaji || "")}" data-field="romaji" aria-label="拼音"></td>
+        <tr class="${row.soundStatus === "new" ? "mapping-row-new-sound" : ""}" data-row-id="${escapeHtml(row.id)}" data-row-type="phonetic">
+          <td><input value="${escapeHtml(row.romaji || "")}" data-field="romaji" aria-label="拼音">${window.OtowaiReadings?.additions(row).length ? `<details class="dictionary-additions"><summary>新增 ${window.OtowaiReadings.additions(row).length} 字 / 读音</summary><p>${escapeHtml(window.OtowaiReadings.additions(row).join(' '))}</p><small>多音字须在句中选择读音，以上不代表自动选音。</small></details>` : ''}</td>
           <td><input value="${escapeHtml(row.kana || "")}" data-field="kana"></td>
           <td><button type="button" class="mapping-speak speak" data-kana="${escapeHtml(row.kana || "")}" aria-label="朗读 ${escapeHtml(row.kana || "")}">🔊</button></td>
           <td><button type="button" data-action="remove-row">删</button></td>
@@ -1505,6 +1578,9 @@ function renderMappingEditors() {
       `
     )
     .join("");
+
+  const coverage = document.querySelector('#dictionary-coverage');
+  if (coverage && window.OTOWAI_DICTIONARY_META) coverage.textContent = `读音库：${window.OTOWAI_DICTIONARY_META.characterCount.toLocaleString()} 字，覆盖 8,105 个通用规范汉字；${window.OTOWAI_DICTIONARY_META.readingCount} 种去声调读音（含少见 / 方言音）。新增假名是拟音候选，紫色供你校对。`;
 
   if (phraseBody) phraseBody.innerHTML = visiblePhraseRows
     .map(
@@ -1537,6 +1613,83 @@ function renderMappingEditors() {
     };
   });
   bindSpeakers();
+}
+
+let aiMappingDraft = null;
+
+function setAiMappingStatus(message, tone = "") {
+  const status = document.querySelector("#ai-mapping-status");
+  if (!status) return;
+  status.textContent = message;
+  status.dataset.tone = tone;
+}
+
+function renderAiMappingDraft(draft) {
+  const result = document.querySelector("#ai-mapping-result");
+  if (!result) return;
+  const segments = Array.isArray(draft.segments) ? draft.segments : [];
+  const warnings = Array.isArray(draft.warnings) ? draft.warnings : [];
+  result.hidden = false;
+  result.innerHTML = `
+    <h5>AI 草稿：${escapeHtml(draft.source || "")}</h5>
+    <p class="ai-mapping-kana">${escapeHtml(draft.kana || "")}</p>
+    <p class="ai-mapping-romaji">${escapeHtml(draft.romaji || "")}</p>
+    <p>${escapeHtml(draft.explanation || "")}</p>
+    ${segments.length ? `<p>音节拆分：</p><ul>${segments.map((item) => `<li>${escapeHtml(item.source || "")} → ${escapeHtml(item.kana || "")}：${escapeHtml(item.reason || "")}</li>`).join("")}</ul>` : ""}
+    ${warnings.length ? `<p>校对提醒：</p><ul>${warnings.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}
+    <p>模型信心：${Math.round(Number(draft.confidence || 0) * 100)}% · 状态：待校对</p>
+    <button type="button" id="ai-mapping-copy">复制草稿 JSON</button>
+  `;
+  const copy = result.querySelector("#ai-mapping-copy");
+  if (copy) copy.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(aiMappingDraft, null, 2));
+      setAiMappingStatus("草稿 JSON 已复制，审核后再手动录入规则。", "success");
+    } catch {
+      setAiMappingStatus("复制失败，请使用浏览器允许剪贴板访问后重试。", "error");
+    }
+  };
+}
+
+function bindAiMappingPanel() {
+  const button = document.querySelector("#ai-mapping-generate");
+  const sourceInput = document.querySelector("#maker-input");
+  const contextInput = document.querySelector("#ai-mapping-context");
+  if (!button || !sourceInput) return;
+  button.onclick = async () => {
+    const source = sourceInput.value.trim();
+    const context = contextInput ? contextInput.value.trim() : "";
+    if (!source) {
+      setAiMappingStatus("请先在上方词句输入框填写中文内容。", "error");
+      sourceInput.focus();
+      return;
+    }
+    button.disabled = true;
+    aiMappingDraft = null;
+    setAiMappingStatus("正在生成草稿…");
+    const result = document.querySelector("#ai-mapping-result");
+    if (result) result.hidden = true;
+    try {
+      const response = await fetch("/api/ai/mapping", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ source, context }),
+      });
+      if (!response.ok) {
+        if (response.status === 401) throw new Error("请先登录管理员账号");
+        if (response.status === 429) throw new Error("免费额度暂时用完，请稍后再试");
+        throw new Error("AI 服务暂时不可用");
+      }
+      aiMappingDraft = await response.json();
+      renderAiMappingDraft(aiMappingDraft);
+      setAiMappingStatus("草稿已生成，请检查后再手动录入规则。", "success");
+    } catch (error) {
+      setAiMappingStatus(error instanceof Error ? error.message : "生成失败，请稍后再试。", "error");
+    } finally {
+      button.disabled = false;
+    }
+  };
 }
 
 function bindMappingEditors() {
@@ -1583,6 +1736,52 @@ function bindMappingEditors() {
   const addPhonetic = document.querySelector("#add-phonetic-row");
   const addPhrase = document.querySelector("#add-phrase-row");
   const resetButton = document.querySelector("#maker-reset-mappings");
+  const backupStatus = document.querySelector("#rules-backup-status");
+  const exportRules = () => {
+    const text = OtowaiBackup.serialize(phoneticRows, phraseRows, dictionaryBaseline);
+    const url = URL.createObjectURL(new Blob([text], {type:"application/json"}));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `音逢规则备份-${new Date().toISOString().replace(/[:.]/g,"-")}.json`;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url),1000);
+  };
+  document.querySelector("#rules-export").onclick = () => {
+    try {exportRules();backupStatus.textContent="已下载规则备份，请妥善保存该 JSON 文件。";}
+    catch(error) {backupStatus.textContent=error.message;}
+  };
+  const backupFile = document.querySelector("#rules-file");
+  document.querySelector("#rules-import").onclick = () => backupFile.click();
+  backupFile.onchange = async () => {
+    const file = backupFile.files?.[0];
+    if (!file || !isAdminEditor) return;
+    try {
+      if (file.size > 5_000_000) throw Error("备份文件过大。");
+      const restored = OtowaiBackup.parse(await file.text());
+      if (!window.confirm(`将用备份中的 ${restored.phoneticRows.length} 条拼音规则覆盖当前规则（含已有修改）。继续前会下载当前规则备份，确定恢复吗？`)) return;
+      exportRules();
+      // Persist both sets before replacing the in-memory dictionary.
+      const oldP = localStorage.getItem(MAKER_PHONETIC_ROWS_KEY);
+      const oldW = localStorage.getItem(MAKER_PHRASE_ROWS_KEY);
+      const oldBaseline = localStorage.getItem('otowai-dictionary-baseline-v1');
+      const restoredBaseline = restored.dictionaryBaseline || restored.phoneticRows.map(row=>({chars:row.chars,romaji:row.romaji}));
+      try {
+        localStorage.setItem(MAKER_PHONETIC_ROWS_KEY,JSON.stringify(restored.phoneticRows));
+        localStorage.setItem(MAKER_PHRASE_ROWS_KEY,JSON.stringify(restored.phraseRows));
+        localStorage.setItem('otowai-dictionary-baseline-v1',JSON.stringify(restoredBaseline));
+      } catch(error) {
+        if(oldP===null)localStorage.removeItem(MAKER_PHONETIC_ROWS_KEY);else localStorage.setItem(MAKER_PHONETIC_ROWS_KEY,oldP);
+        if(oldW===null)localStorage.removeItem(MAKER_PHRASE_ROWS_KEY);else localStorage.setItem(MAKER_PHRASE_ROWS_KEY,oldW);
+        if(oldBaseline===null)localStorage.removeItem('otowai-dictionary-baseline-v1');else localStorage.setItem('otowai-dictionary-baseline-v1',oldBaseline);
+        throw Error("浏览器存储失败，未恢复规则。请先释放空间。");
+      }
+      phoneticRows=restored.phoneticRows;phraseRows=restored.phraseRows;
+      expandReadingDictionary(restoredBaseline);
+      normalizeMappings();saveMappings();renderMappingEditors();showMakerEmpty();
+      backupStatus.textContent="规则已恢复到本机。线上同步如失败会另行提示；备份文件请保留。";
+    } catch(error) {backupStatus.textContent=`恢复取消：${error.message}`;}
+    finally {backupFile.value="";}
+  };
   if (addPhonetic) {
     addPhonetic.onclick = () => {
       const rowId = `phonetic-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -1659,7 +1858,7 @@ async function bindAdminMappingView() {
   };
 }
 
-function buildMakerSentence(input, variant = 0, mode = "syllable") {
+function buildMakerSentence(input, variant = 0, mode = "syllable", readingChoices = {}) {
   const original = input.trim();
   const compact = original.replace(/\s+/g, "");
   const chars = [...compact];
@@ -1669,18 +1868,27 @@ function buildMakerSentence(input, variant = 0, mode = "syllable") {
   let romaji = [];
   const matchedChars = [];
   const generatedChars = [];
+  const trace = [];
   for (let i = 0; i < chars.length; i += 1) {
     const char = chars[i];
-    const isHanChar = /[\u4e00-\u9fff]/.test(char);
+    const isHanChar = /\p{Script=Han}/u.test(char);
     let item = null;
     const phraseMatch = usePhraseMatch && isHanChar ? pickExplicitKanaForPhrase(compact, i) : null;
     const polyphonicMatch = isHanChar ? pickPolyphonicKana(compact, i, char) : null;
+    const dictionaryMatch = isHanChar && window.OtowaiReadings
+      ? window.OtowaiReadings.resolve(char, phoneticRows, kanaMap, readingChoices[i], polyphonicMatch) : null;
 
     if (phraseMatch) {
       item = { kana: phraseMatch.kana, romaji: phraseMatch.romaji };
       i += phraseMatch.length - 1;
     } else if (isKana(char)) {
       item = { kana: char, romaji: char };
+    } else if (dictionaryMatch) {
+      if (!dictionaryMatch.pending) {
+        item = dictionaryMatch;
+        if (kanaMap[char]) matchedChars.push({char,kana:item.kana});
+        else generatedChars.push({char,kana:item.kana,romaji:item.romaji,confirmed:true});
+      }
     } else if (polyphonicMatch) {
       item = polyphonicMatch;
       matchedChars.push({ char, kana: item.kana });
@@ -1691,7 +1899,7 @@ function buildMakerSentence(input, variant = 0, mode = "syllable") {
       const pinyin = window.OTOWAI_PINYIN_BY_CHAR[char];
       const samePinyinRow = phoneticRows.find((row) => row.romaji.trim().toLowerCase() === pinyin);
       const exactKana = EXACT_ROMAJI_KANA[pinyin];
-      const selectedKana = samePinyinRow?.manual === true ? samePinyinRow.kana.trim() : exactKana || samePinyinRow?.kana.trim();
+      const selectedKana = samePinyinRow?.kana.trim() || exactKana;
       if (selectedKana) {
         item = { kana: selectedKana, romaji: pinyin };
         generatedChars.push({ char, kana: item.kana, romaji: pinyin, confirmed: true });
@@ -1705,18 +1913,27 @@ function buildMakerSentence(input, variant = 0, mode = "syllable") {
     }
 
     if (!item) {
-      const cluster = pickFallbackMoraCluster(char, variant, i);
       if (isHanChar) {
         const pinyin = window.OTOWAI_PINYIN_BY_CHAR?.[char];
-        generatedChars.push({ char, kana: cluster.map((unit) => unit.kana).join(" "), romaji: pinyin || cluster.map((unit) => unit.romaji).join(" "), confirmed: false });
+        generatedChars.push({ char, kana: "", romaji: pinyin || "", confirmed: false });
+        kana.push(`【${char}·待校对】`);
+        romaji.push(pinyin || "?");
+      } else {
+        kana.push(char);
+        romaji.push(char);
       }
-      for (let j = 0; j < cluster.length; j += 1) {
-        kana.push(cluster[j].kana);
-        romaji.push(cluster[j].romaji);
-      }
+      trace.push({char, pinyin: dictionaryMatch?.pending ? "" : isHanChar ? window.OTOWAI_PINYIN_BY_CHAR?.[char] || "" : "", kana: isHanChar ? "" : char, source: isHanChar ? "pending" : "retained", ...(dictionaryMatch ? {index:i,options:dictionaryMatch.options,isNew:true} : {})});
       continue;
     }
 
+    // Describe the rule actually selected, without promoting generated rules to human approvals.
+    const rule = isHanChar ? phoneticRows.find(row => row.romaji.trim().toLowerCase() === item.romaji.trim().toLowerCase() && row.kana.trim() === item.kana.trim()) : null;
+    const reused = isHanChar && !kanaMap[char] && !polyphonicMatch;
+    const source = !isHanChar ? "retained" : rule?.manual === true
+      ? (reused ? "homophone-manual" : "manual")
+      : rule?.soundStatus === "new" ? "draft"
+      : polyphonicMatch ? "context" : reused ? "homophone" : "rule";
+    trace.push({char, pinyin: isHanChar ? item.romaji : "", kana:item.kana, source, ...(dictionaryMatch ? {index:i,options:dictionaryMatch.options,isNew:dictionaryMatch.isNew} : {})});
     kana.push(item.kana);
     romaji.push(item.romaji);
   }
@@ -1724,14 +1941,16 @@ function buildMakerSentence(input, variant = 0, mode = "syllable") {
   const matchedNote = matchedChars.length
     ? ` 已套用字库同音：${matchedChars.map((item) => `${item.char}→${item.kana}`).join("、")}，并已记录到本地历史。`
     : " 本句没有命中字库中的现有汉字映射。";
-  const note = `学习版规则：按字符逐一按音感重写。中文字符优先走固定音感映射，未命中的字再走音节簇回退。` +
+  const note = `按字符逐一使用现有读音规则；有可靠拼音的同音字复用映射规则，未知读音标为待校对，不自动入库。` +
     " 当前为纯音节模式，不做意译式短语替换。 " +
     (isKana(original) && !isHan(original)
       ? "原有假名会尽量保留。"
       : "中文/日文混合句子时，每一段字符都参与重写。") + matchedNote;
-  const confidence = chars.length > 0 ? 100 : 0;
+  const hanCount = chars.filter(char => /\p{Script=Han}/u.test(char)).length;
+  const coveredCount = matchedChars.length + generatedChars.filter(item => item.confirmed === true).length;
+  const confidence = hanCount ? Math.round(coveredCount / hanCount * 100) : 0;
 
-  return { input: original, kana: kana.join(" "), romaji: romaji.join(" "), confidence, note, mode, matchedChars, generatedChars };
+  return { input: original, kana: kana.join(" "), romaji: romaji.join(" "), confidence, note, mode, matchedChars, generatedChars, trace, readingChoices };
 }
 
 function recordGeneratedMappings(result) {
@@ -1739,13 +1958,11 @@ function recordGeneratedMappings(result) {
   let changed = false;
   let added = 0;
   let pending = 0;
-  result.generatedChars.forEach(({ char, kana, romaji }) => {
+  result.generatedChars.forEach(({ char, kana, romaji, confirmed }) => {
+    if (confirmed !== true || !kana || !romaji) { pending += 1; return; }
     if (!char || kanaMap[char]) return;
     const normalizedRomaji = romaji.trim().toLowerCase();
     const sameRomajiRow = phoneticRows.find((row) => row.romaji.trim().toLowerCase() === normalizedRomaji);
-    if (sameRomajiRow && sameRomajiRow.manual !== true && EXACT_ROMAJI_KANA[normalizedRomaji] === kana) {
-      sameRomajiRow.kana = kana;
-    }
     const existing = phoneticRows.find((row) => row.kana.trim() === kana && row.romaji.trim().toLowerCase() === normalizedRomaji);
     if (existing) {
       const chars = existing.chars.split(/[,，]/).map((item) => item.trim()).filter(Boolean);
@@ -1771,7 +1988,7 @@ function auditMappingAnomalies() {
     chars.forEach((char) => {
       const current = { kana: row.kana, romaji: row.romaji.trim().toLowerCase() };
       const previous = charOwners.get(char);
-      const allowedReadings = char === "行" ? new Set(["xing", "hang"]) : null;
+      const allowedReadings = window.OTOWAI_READINGS_BY_CHAR?.[char] ? new Set(window.OTOWAI_READINGS_BY_CHAR[char]) : char === "行" ? new Set(["xing", "hang"]) : null;
       if (previous && previous.kana !== current.kana && !(allowedReadings?.has(previous.romaji) && allowedReadings.has(current.romaji))) charConflicts += 1;
       else if (!previous) charOwners.set(char, current);
     });
@@ -1783,172 +2000,237 @@ function auditMappingAnomalies() {
   return { charConflicts, pinyinConflicts };
 }
 
+let disposeMakerAudio = null;
 function renderMaker(result) {
+  disposeMakerAudio?.();
+  let audioDisposed = false;
+  let audioBusy = false;
+  const aiVoice = ['Japanese_GentleButler','Japanese_CalmLady_ExtremeHigh','Japanese_GentleButler_MildLow'].includes(result.aiVoice) ? result.aiVoice : 'Japanese_CalmLady';
   const output = document.querySelector("#maker-output");
+  const hanCount = [...result.input].filter(char => /\p{Script=Han}/u.test(char)).length;
+  const hasCoverage = Array.isArray(result.matchedChars) && Array.isArray(result.generatedChars);
+  const coveredCount = hasCoverage ? result.matchedChars.length + result.generatedChars.filter(item => item.confirmed === true).length : 0;
+  const coverageLabel = !hanCount ? "无汉字需要匹配" : hasCoverage
+    ? `已有规则覆盖：${coveredCount}/${hanCount} 个汉字；${Math.max(0,hanCount-coveredCount)} 个未命中。覆盖数量不代表读音准确率，仍需人工校对。`
+    : "此结果未记录规则覆盖统计，读音仍需人工校对。";
+  const sourceLabels = {manual:"映射规则", "homophone-manual":"同音规则复用", rule:"已有规则", homophone:"同音 / 拼音复用", context:"语境选音规则", draft:"候选 · 待校对", pending:"未命中 · 待校对", retained:"原样保留"};
+  const traceMarkup = result.trace?.length ? result.trace.map(item => `
+    <li class="trace-item ${item.isNew || item.source === "pending" || item.source === "draft" ? "trace-pending" : ""}">
+      <b>${escapeHtml(item.char)}</b><span>${escapeHtml(item.pinyin || "—")}</span>
+      <strong>${escapeHtml(item.kana || "待校对")}</strong><small>${item.isNew ? '新增 · 待校对' : sourceLabels[item.source] || "来源未记录"}</small>
+      ${item.options?.length > 1 ? `<select data-reading-index="${item.index}" aria-label="${escapeHtml(item.char)}（第 ${item.index+1} 字）读音"><option value="">选择读音</option>${item.options.map(pinyin=>`<option value="${escapeHtml(pinyin)}" ${item.pinyin===pinyin?'selected':''}>${escapeHtml(pinyin)}</option>`).join('')}</select>` : ''}
+    </li>`).join("") : '<li class="trace-unrecorded">历史结果未记录逐字依据，请点击“重新转换”查看当前规则。</li>';
   output.innerHTML = `
-    <div>
-      <span>原句</span>
-      <p>${result.input}</p>
-    </div>
-    <div>
-      <span>对应句（假名化）</span>
-      <p>${result.kana}</p>
-    </div>
-    <div>
-      <span>对应句（发音）</span>
-      <p>${result.romaji}</p>
-    </div>
-    <p class="maker-meta">学习匹配率：${result.confidence}% · ${result.note}</p>
-    <div class="maker-playback-control">
-      <label for="maker-playback-rate">匹配后微调：<span id="maker-playback-rate-value">1.0x</span></label>
-      <input id="maker-playback-rate" type="range" min="0.5" max="1.8" step="0.1" value="1">
-      <label for="maker-voice">朗读声音</label>
-      <select id="maker-voice"><option value="">正在载入日语女声…</option></select>
-      <p id="maker-timing-status" class="maker-timing-status" aria-live="polite">首次朗读时会静音测量中文原句与假名的时长。</p>
-    </div>
-    <div class="maker-output-actions">
-      <button id="maker-copy">复制结果</button>
-      <button id="maker-speak">朗读生成句子</button>
-      <button id="maker-save-audio">保存音频</button>
-      <button id="maker-share-audio">分享朗读</button>
-      <button id="maker-restart">再生成一次</button>
+    <div class="maker-result-heading"><span>01 / 规则转换结果</span><b>非语义翻译</b></div>
+    <div><span>中文原句 / 原始输入</span><p>${escapeHtml(result.input)}</p></div>
+    <div class="maker-kana-result"><span>对应假名</span><p>${escapeHtml(result.kana)}</p></div>
+    <details class="conversion-trace" open>
+      <summary>逐字转换依据 <small>汉字 → 拼音 → 假名</small></summary>
+      <ul>${traceMarkup}</ul>
+      <p>声调不参与同音分组。多音字可逐字选择；不能确定的新增多音字选音后才能朗读。紫色为新增内容。</p>
+    </details>
+    <p class="maker-meta">${coverageLabel}</p>
+    <details class="conversion-note"><summary>查看转换记录与罗马音</summary><p>${escapeHtml(result.romaji)}</p><p>${escapeHtml(result.note || "")}</p></details>
+    <section class="maker-audio-panel" aria-label="AI 日语语音" data-audio-state="idle">
+      <div class="maker-result-heading"><span>02 / AI 日语配音</span><b>MiniMax · 云端合成</b></div>
+      <div class="maker-ai-voice-control">
+        <label for="maker-ai-voice">AI 音色</label>
+        <select id="maker-ai-voice" aria-describedby="maker-ai-voice-hint">
+          <option value="Japanese_CalmLady">日语女声 · 默认</option>
+          <option value="Japanese_GentleButler">日语男声</option>
+          <option value="Japanese_CalmLady_ExtremeHigh">高尖搞怪声</option>
+          <option value="Japanese_GentleButler_MildLow">轻度低沉</option>
+        </select>
+        <p id="maker-ai-voice-hint" class="maker-timing-status">切换音色不会自动生成；再次点击生成或首次保存会产生新的合成费用。</p>
+      </div>
+      <ol class="audio-stages" aria-label="音频生成阶段" hidden><li>提交中</li><li>合成中</li><li>音频加载中</li></ol>
+      <p id="maker-audio-status" class="maker-timing-status" role="status">尚未生成音频。点击“生成 AI 语音并播放”后才调用语音接口。</p>
+      <div id="maker-audio-player" class="maker-audio-player" hidden></div>
+      <div class="maker-output-actions maker-audio-actions">
+        <button type="button" id="maker-speak">生成 AI 语音并播放</button>
+        <button type="button" id="maker-save-audio">保存音频</button>
+        <button type="button" id="maker-share-audio">分享结果</button>
+      </div>
+      <div class="maker-playback-control">
+        <label for="maker-playback-rate">播放速度 <output id="maker-playback-rate-value" for="maker-playback-rate">1.0x</output></label>
+        <input id="maker-playback-rate" type="range" min="0.5" max="1.8" step="0.1" value="1">
+        <button type="button" id="maker-rate-reset">恢复原速</button>
+      </div>
+      <p id="maker-timing-status" class="maker-timing-status">默认按 AI 原速播放；拖动滑块只改变本次播放速度，下载仍是原音。</p>
+      <aside class="maker-audio-tip" aria-label="AI 音频提示">
+        <p>可以生成像这样的声音，用途由使用者自行决定</p>
+        <audio controls preload="none" src="/maker-disclaimer.mp3" aria-label="提示语 AI 生成示例音频"></audio>
+      </aside>
+      <details class="audio-disclosure"><summary>调用说明与隐私</summary><p>朗读或首次保存音频会将假名发送给 APIZ / MiniMax。每次最多 200 个假名字符（含空格），同一网络每分钟 3 次，全站每天 1,000 次。请勿输入隐私信息。本次结果已生成的音频会复用，重复播放、拖动进度和下载不重复合成。刷新或重新转换后可能需要重新合成。</p></details>
+    </section>
+    <div class="maker-output-actions maker-text-actions">
+      <button type="button" id="maker-copy">复制结果</button>
+      <button type="button" id="maker-restart">重新转换</button>
     </div>
   `;
-
+  output.querySelectorAll?.('[data-reading-index]').forEach(select => {
+    select.onchange = () => {
+      const choices = {...result.readingChoices, [select.dataset.readingIndex]:select.value};
+      const next = buildMakerSentence(result.input, 0, result.mode, choices);
+      next.aiVoice = aiVoice;
+      recordGeneratedMappings(next);
+      renderMaker(next);
+      addMakerHistory(next);
+    };
+  });
   const playbackSlider = document.querySelector("#maker-playback-rate");
   const playbackValue = document.querySelector("#maker-playback-rate-value");
-  const voiceSelect = document.querySelector("#maker-voice");
   const timingStatus = document.querySelector("#maker-timing-status");
-  let currentTiming = null;
-  const updateTimingStatus = () => {
-    if (!currentTiming) return;
-    const adjustedRate = clampNumber(currentTiming.matchedRate * Number(playbackSlider.value), 0.25, 4);
-    const expectedSeconds = currentTiming.targetSeconds / adjustedRate;
-    timingStatus.textContent = `${currentTiming.measured ? "实测" : "估算"}中文 ${currentTiming.referenceSeconds.toFixed(1)} 秒 · 自动语速 ${currentTiming.matchedRate.toFixed(2)}x · 当前预计 ${expectedSeconds.toFixed(1)} 秒`;
-  };
-  playbackSlider.oninput = () => {
-    playbackValue.textContent = `${Number(playbackSlider.value).toFixed(1)}x`;
-    updateTimingStatus();
-  };
-  const refreshVoices = () => {
-    const voices = getJapaneseVoices() || [];
-    if (!voices.length) return;
-    let savedVoiceURI = "";
-    try { savedVoiceURI = localStorage.getItem(MAKER_VOICE_KEY) || ""; } catch {}
-    const selected = voices.some((item) => item.voiceURI === savedVoiceURI) ? savedVoiceURI : voices[0].voiceURI;
-    voiceSelect.innerHTML = voices.map((item, index) => `<option value="${escapeHtml(item.voiceURI)}">${index === 0 ? "女声优先 · " : ""}${escapeHtml(item.name)}</option>`).join("");
-    voiceSelect.value = selected;
-  };
-  refreshVoices();
-  if ("speechSynthesis" in window) speechSynthesis.addEventListener("voiceschanged", refreshVoices, { once: true });
+  const audioStatus = document.querySelector("#maker-audio-status");
+  const playerHost = document.querySelector("#maker-audio-player");
+  const speakButton = document.querySelector("#maker-speak");
+  const saveButton = document.querySelector("#maker-save-audio");
+  const shareButton = document.querySelector("#maker-share-audio");
+  const voiceSelect = document.querySelector("#maker-ai-voice");
+  voiceSelect.value = aiVoice;
   voiceSelect.onchange = () => {
-    try { localStorage.setItem(MAKER_VOICE_KEY, voiceSelect.value); } catch {}
-    currentTiming = null;
-    timingStatus.textContent = "声音已更换，下次朗读时会重新测量时长。";
+    if (audioBusy || audioDisposed) {voiceSelect.value = aiVoice; return;}
+    const selected = voiceSelect.value;
+    if (!['Japanese_CalmLady','Japanese_GentleButler','Japanese_CalmLady_ExtremeHigh','Japanese_GentleButler_MildLow'].includes(selected) || selected === aiVoice) return;
+    renderMaker({...result,aiVoice:selected});
   };
-
-  const getMatchedPlaybackRate = async () => {
-    if (!currentTiming) {
-      timingStatus.textContent = "正在静音测量中文原句与假名，请稍候…";
-      currentTiming = await calibrateSpeechTiming(result.input, result.kana, voiceSelect.value);
-    }
-    updateTimingStatus();
-    return clampNumber(currentTiming.matchedRate * Number(playbackSlider.value), 0.25, 4);
-  };
-
-  document.querySelector("#maker-copy").onclick = () => {
-    if (!("clipboard" in navigator)) return;
-    const text = `${result.kana}\n${result.romaji}`;
-    navigator.clipboard.writeText(text).catch(() => {});
-    output.querySelector("#maker-copy").textContent = "已复制到剪贴板";
-    window.setTimeout(() => {
-      if (output.querySelector("#maker-copy")) {
-        output.querySelector("#maker-copy").textContent = "复制结果";
-      }
-    }, 1600);
-  };
-
-  document.querySelector("#maker-speak").onclick = async () => {
-    const button = document.querySelector("#maker-speak");
-    button.disabled = true;
-    button.textContent = "正在匹配朗读时长";
-    const rate = await getMatchedPlaybackRate();
-    button.disabled = false;
-    playSpeech(result.kana, rate, {
-      voiceURI: voiceSelect.value,
-      onstart: () => { button.textContent = "正在聆听"; },
-      onend: () => { button.textContent = "朗读生成句子"; },
-      onerror: () => { button.textContent = "朗读生成句子"; },
+  let readyAudio = null;
+  let mountedPlayer = null;
+  let terminalFailure = false;
+  const audioPanel = output.querySelector?.('.maker-audio-panel');
+  const stageList = output.querySelector?.('.audio-stages');
+  let lastStage = 0;
+  const showAudioStage = state => {
+    if (audioDisposed) return;
+    if (audioPanel) audioPanel.dataset.audioState = state;
+    if (!stageList) return;
+    stageList.hidden = state === 'idle';
+    const index = {submitting:0,synthesizing:1,downloading:2,ready:3}[state];
+    if (index !== undefined) lastStage = index;
+    stageList.querySelectorAll('li').forEach((step,i) => {
+      step.dataset.complete = String(i < lastStage);
+      step.textContent = (i < lastStage ? ['已提交','合成完成','加载完成'] : ['提交中','合成中','音频加载中'])[i];
+      if (i === lastStage && state !== 'error') step.setAttribute('aria-current','step');
+      else step.removeAttribute('aria-current');
     });
-    };
-
-  document.querySelector("#maker-save-audio").onclick = async () => {
-    const button = document.querySelector("#maker-save-audio");
-    if (!(navigator.mediaDevices?.getDisplayMedia) || !("MediaRecorder" in window) || !("speechSynthesis" in window)) {
-      window.alert("当前浏览器不支持保存朗读音频。");
+  };
+  const directKana = /^[\u3040-\u30ff\s。、！？!?ー]+$/.test(result.input);
+  const audioSession = OtowaiAudio.createAudioSession({text:directKana ? result.input : result.kana, language:"ja-JP", voice:aiVoice, speed:1}, {
+    provider: OtowaiAudio.createAudioProvider({onProgress: (message,stage) => {
+      if (audioDisposed) return;
+      audioStatus.textContent = message;
+      showAudioStage(stage);
+      speakButton.textContent = {submitting:'正在提交…',synthesizing:'正在合成…',downloading:'正在加载音频…',waiting:'等待服务响应…'}[stage] || '等待 AI 音频…';
+    }}),
+  });
+  disposeMakerAudio = () => {audioDisposed = true; audioSession.dispose();};
+  const updateRate = () => {
+    const rate = Number(playbackSlider.value);
+    playbackValue.textContent = `${rate.toFixed(1)}x`;
+    if (!readyAudio) return;
+    audioSession.setRate?.(readyAudio.duration, rate);
+    timingStatus.textContent = `AI 原音 ${readyAudio.duration.toFixed(1)} 秒 · 当前 ${rate.toFixed(1)}x，约 ${(readyAudio.duration / rate).toFixed(1)} 秒 · 下载保留原速`;
+  };
+  playbackSlider.oninput = updateRate;
+  document.querySelector("#maker-rate-reset").onclick = () => {playbackSlider.value = "1"; updateRate();};
+  const busy = value => {audioBusy=value; voiceSelect.disabled=value; speakButton.disabled=value || terminalFailure; saveButton.disabled=value || terminalFailure;};
+  const reportError = error => {
+    if (audioDisposed) return;
+    showAudioStage('error');
+    if (error.code === "AUDIO_TASK_FAILED") {
+      terminalFailure = true;
+      audioStatus.textContent = "这次 AI 合成任务已失败，不能继续查询。可点击下方“重新转换”，检查假名后再生成新音频；新任务可能产生新的费用。未切换到浏览器配音。";
+      speakButton.textContent = "本次合成失败";
       return;
     }
-    let capture;
-    try {
-      button.textContent = "请选择当前标签页并共享音频";
-      capture = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
-      const audioTracks = capture.getAudioTracks();
-      if (!audioTracks.length) throw new Error("没有共享音频轨道");
-      const audioStream = new MediaStream(audioTracks);
-      const chunks = [];
-      const recorder = new MediaRecorder(audioStream, MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? { mimeType: "audio/webm;codecs=opus" } : undefined);
-      recorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
-      recorder.onstop = () => {
-        const blob = new Blob(chunks, { type: recorder.mimeType || "audio/webm" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = `空耳-${result.input.slice(0, 12).replace(/[\\/:*?"<>|]/g, "_") || "朗读"}.webm`;
-        link.click();
-        URL.revokeObjectURL(url);
-        capture.getTracks().forEach((track) => track.stop());
-        button.textContent = "保存音频";
-      };
-      recorder.start();
-      speechSynthesis.cancel();
-      const voice = new SpeechSynthesisUtterance(result.kana);
-      voice.lang = "ja-JP";
-      const savedTiming = currentTiming || {
-        matchedRate: alignSpeechRate(result.input, result.kana),
-        targetSeconds: estimateSpeechSeconds(result.kana, "ja-JP"),
-        referenceSeconds: estimateSpeechSeconds(result.input, "zh-CN"),
-        measured: false,
-      };
-      voice.rate = clampNumber(savedTiming.matchedRate * Number(playbackSlider.value), 0.25, 4);
-      const japaneseVoice = getJapaneseVoice(voiceSelect.value);
-      if (japaneseVoice) voice.voice = japaneseVoice;
-      voice.onstart = () => { button.textContent = "正在录制朗读"; };
-      voice.onend = () => window.setTimeout(() => recorder.stop(), 180);
-      voice.onerror = () => recorder.stop();
-      speechSynthesis.speak(voice);
-    } catch {
-      if (capture) capture.getTracks().forEach((track) => track.stop());
-      button.textContent = "保存音频";
-      window.alert("未取得标签页音频。请选择当前标签页，并勾选“共享标签页音频”。");
+    if (['LOCAL_PREVIEW_ONLY','AUDIO_DAILY_LIMIT','AUDIO_PROVIDER_NOT_CONFIGURED'].includes(error.code)) {
+      audioStatus.textContent = `${error.userMessage} 输入和假名结果已保留，无需重新转换。`;
+      speakButton.textContent = '重新检查语音服务';
+      return;
     }
+    audioStatus.textContent = `${error.userMessage || "AI 音频未能生成。"} 输入和假名结果已保留。未切换到浏览器配音；可点击重试。`;
+    speakButton.textContent = "重试 AI 语音";
   };
-
-  document.querySelector("#maker-share-audio").onclick = async () => {
-    const shareData = { title: "音逢·句句生成器", text: result.kana };
+  const prepareAudio = async () => {
+    if (readyAudio) return readyAudio;
+    audioStatus.textContent = "正在提交 AI 语音任务…";
+    showAudioStage('submitting');
+    speakButton.textContent = "等待 AI 音频…";
+    const generated = await audioSession.generate();
+    if (audioDisposed) return null;
+    readyAudio = generated;
+    const player = audioSession.getAudioElement?.();
+    if (player && mountedPlayer !== player) {
+      mountedPlayer = player;
+      player.controls = true;
+      player.preload = "metadata";
+      player.setAttribute("aria-label", "AI 生成音频：播放、暂停和拖动进度");
+      playerHost.replaceChildren(player);
+      playerHost.hidden = false;
+      player.addEventListener("playing", () => {if (!audioDisposed) audioStatus.textContent = "正在播放 AI 生成的日语原音 · 可暂停或拖动进度";});
+      player.addEventListener("pause", () => {if (!audioDisposed && !player.ended) audioStatus.textContent = "已暂停 · 继续播放不会重新生成音频";});
+      player.addEventListener("ended", () => {if (!audioDisposed) audioStatus.textContent = "播放完毕 · 可重播或保存原音，不重复合成";});
+    }
+    updateRate();
+    showAudioStage('ready');
+    speakButton.textContent = "重播 AI 语音";
+    audioStatus.textContent = "AI 音频已就绪 · 支持播放、拖动进度和保存原音";
+    return generated;
+  };
+  speakButton.onclick = async () => {
+    busy(true);
     try {
-      if (navigator.share) await navigator.share(shareData);
-      else if (navigator.clipboard) {
-        await navigator.clipboard.writeText(shareData.text);
-        window.alert("当前设备不支持直接分享，已复制朗读内容，可粘贴发送。");
+      const generated = await prepareAudio();
+      if (!generated || audioDisposed) return;
+      try {await audioSession.play(generated.duration, Number(playbackSlider.value));}
+      catch {if (!audioDisposed) {speakButton.textContent = "▶ 播放已生成音频"; audioStatus.textContent = "AI 音频已生成，但自动播放被阻止。请点击上方播放器的播放键，或保存后播放，无需重新生成。";}}
+    } catch (error) {reportError(error);}
+    finally {if (!audioDisposed) busy(false);}
+  };
+  saveButton.onclick = async () => {
+    busy(true);
+    try {
+      const generated = await prepareAudio();
+      if (!generated || audioDisposed) return;
+      const extension = {"audio/mpeg":"mp3","audio/mp3":"mp3","audio/wav":"wav","audio/x-wav":"wav","audio/ogg":"ogg","audio/webm":"webm","audio/mp4":"m4a","audio/aac":"aac"}[generated.mimeType] || "audio";
+      const url = URL.createObjectURL(generated.blob);
+      const link = document.createElement("a");
+      link.href=url; link.download=`空耳-原速.${extension}`; link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 30000);
+      audioStatus.textContent = "已发起原速音频下载；播放速度设置不会改写音频文件。";
+    } catch (error) {reportError(error);}
+    finally {if (!audioDisposed) busy(false);}
+  };
+  shareButton.onclick = async () => {
+    // Sharing does not submit a paid synthesis request.
+    try {
+      if (readyAudio && typeof File !== "undefined") {
+        const extension = readyAudio.mimeType === "audio/mpeg" ? "mp3" : readyAudio.mimeType.split("/")[1];
+        const file = new File([readyAudio.blob], `空耳-原速.${extension}`, {type:readyAudio.mimeType});
+        if (navigator.canShare?.({files:[file]})) {await navigator.share({files:[file],title:"音逢·空耳制造器"}); return;}
       }
-    } catch (error) {
-      if (error?.name !== "AbortError") window.alert("分享未完成，已保留生成结果。");
-    }
+      const data = {title:"音逢·空耳制造器",text:`${result.input}\n${result.kana}`};
+      if (navigator.share) await navigator.share(data);
+      else if (navigator.clipboard) {await navigator.clipboard.writeText(data.text); audioStatus.textContent = "已复制文字结果。音频可通过“保存音频”下载后分享。";}
+      else audioStatus.textContent = "当前浏览器不支持分享，请复制文字或保存音频后发送。";
+    } catch (error) {if (!audioDisposed && error.name !== "AbortError") audioStatus.textContent = "分享未完成，生成结果与音频仍保留。";}
   };
-
+  document.querySelector("#maker-copy").onclick = async () => {
+    try {
+      if (!navigator.clipboard) throw new Error("clipboard unavailable");
+      await navigator.clipboard.writeText(`${result.kana}\n${result.romaji}`);
+      if (!audioDisposed) document.querySelector("#maker-copy").textContent = "已复制结果";
+    } catch {if (!audioDisposed) document.querySelector("#maker-copy").textContent = "请选中文字手动复制";}
+  };
+  if (result.generatedChars?.some(item => item.confirmed !== true) || result.kana.includes("待校对")) {
+    audioStatus.textContent = "有待校对汉字，暂不能朗读或保存整句音频。请先补全读音规则，再重新转换。";
+    timingStatus.textContent = "未调用语音接口，不产生语音生成费用。";
+    for (const button of [speakButton, saveButton, shareButton]) {button.disabled = true; button.onclick = () => {};}
+  }
   document.querySelector("#maker-restart").onclick = () => {
     makerVersion += 1;
-    const next = buildMakerSentence(result.input, makerVersion, makerMode);
+    const next = buildMakerSentence(result.input, makerVersion, makerMode, result.readingChoices);
+    next.aiVoice = aiVoice;
     const learning = recordGeneratedMappings(next);
     const audit = auditMappingAnomalies();
     next.note += ` 本次入库 ${learning.added} 个生字，待校对 ${learning.pending} 个；异常检查：同字冲突 ${audit.charConflicts}，同拼音冲突 ${audit.pinyinConflicts}。`;
@@ -1971,10 +2253,10 @@ function renderHistory() {
       .map((entry) => `
         <li>
           <button class="history-item" data-id="${entry.id}">
-            <span>${entry.input}</span>
+            <span>${escapeHtml(entry.input)}</span>
             <small>
               ${formatHistoryTime(entry.createdAt) ? `生成于 ${formatHistoryTime(entry.createdAt)} · ` : ""}
-              ${entry.kana}
+              ${escapeHtml(entry.kana)}
               <span> · 纯音节</span>
             </small>
           </button>
@@ -1986,14 +2268,7 @@ function renderHistory() {
       const target = makerHistory.find((record) => record.id === id);
       if (!target) return;
       document.querySelector("#maker-input").value = target.input;
-      renderMaker({
-        input: target.input,
-        kana: target.kana,
-        romaji: target.romaji,
-        confidence: target.confidence,
-        note: target.note,
-        mode: target.mode || "syllable",
-      });
+      renderMaker(buildMakerSentence(target.input, 0, "syllable", target.readingChoices));
       const makerInput = document.querySelector("#maker-input");
       if (makerInput) {
         makerInput.focus();
@@ -2016,6 +2291,8 @@ function addMakerHistory(item) {
 }
 
 function showMakerEmpty() {
+  disposeMakerAudio?.();
+  disposeMakerAudio = null;
   document.querySelector("#maker-output").innerHTML = `
     <div class="empty-state">
       <span>音</span>
@@ -2116,12 +2393,18 @@ function bindMakerExamples() {
   renderSamples();
 }
 
-document.querySelector("#search").addEventListener("input", render);
-document.querySelectorAll("[data-category]").forEach(button => button.addEventListener("click", () => {
-  category = button.dataset.category;
-  document.querySelectorAll("[data-category]").forEach(item => item.classList.toggle("active", item === button));
+document.querySelector("#search").addEventListener("input", () => {
+  collectionPage = 1;
   render();
-}));
+});
+document.querySelector("#collection-prev").addEventListener("click", () => {
+  collectionPage -= 1;
+  render();
+});
+document.querySelector("#collection-next").addEventListener("click", () => {
+  collectionPage += 1;
+  render();
+});
 document.querySelector("#random").addEventListener("click", () => {
   daily = (daily + 1) % entries.length;
   const entry = entries[daily];
@@ -2129,7 +2412,6 @@ document.querySelector("#random").addEventListener("click", () => {
   document.querySelector("#daily-chinese").textContent = entry.chinese;
   document.querySelector("#daily-kana").textContent = entry.kana;
   document.querySelector("#daily-romaji").textContent = entry.romaji;
-  document.querySelector("#daily-score").innerHTML = `${entry.score}<sup>%</sup>`;
   const button = document.querySelector(".featured-card .speak");
   button.dataset.kana = entry.kana;
 });
@@ -2141,16 +2423,45 @@ document.querySelector("#idea-form").addEventListener("submit", event => {
   document.querySelector("#success").hidden = false;
 });
 
-document.querySelector("#maker-generate").addEventListener("click", () => {
+async function requestAiSentence(source) {
+  const response = await fetch("/api/ai/mapping", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ source }),
+  });
+  if (!response.ok) throw new Error(`AI mapping failed: ${response.status}`);
+  const draft = await response.json();
+  return {
+    input: draft.source,
+    kana: draft.kana,
+    romaji: draft.romaji,
+    confidence: Math.round(Number(draft.confidence || 0) * 100),
+    note: `AI 生成 · ${draft.explanation || "请结合校对提醒理解结果"}${Array.isArray(draft.warnings) && draft.warnings.length ? ` 提醒：${draft.warnings.join("；")}` : ""}`,
+    mode: "ai",
+    matchedChars: [],
+    generatedChars: [],
+  };
+}
+
+document.querySelector("#maker-generate").addEventListener("click", async () => {
   const raw = document.querySelector("#maker-input").value;
   if (!raw.trim()) return;
+  const button = document.querySelector("#maker-generate");
+  button.disabled = true;
+  const originalLabel = button.textContent;
+  button.textContent = "正在匹配字库…";
   makerVersion += 1;
-  const result = buildMakerSentence(raw, makerVersion, makerMode);
-  const learning = recordGeneratedMappings(result);
-  const audit = auditMappingAnomalies();
-  result.note += ` 本次入库 ${learning.added} 个生字，待校对 ${learning.pending} 个；异常检查：同字冲突 ${audit.charConflicts}，同拼音冲突 ${audit.pinyinConflicts}。`;
-  renderMaker(result);
-  addMakerHistory(result);
+  try {
+    const result = buildMakerSentence(raw, makerVersion, makerMode);
+    const learning = recordGeneratedMappings(result);
+    const audit = auditMappingAnomalies();
+    result.note += ` 本次入库 ${learning.added} 个生字，待校对 ${learning.pending} 个；异常检查：同字冲突 ${audit.charConflicts}，同拼音冲突 ${audit.pinyinConflicts}。`;
+    renderMaker(result);
+    addMakerHistory(result);
+  } finally {
+    button.disabled = false;
+    button.textContent = originalLabel;
+  }
 });
 
 document.querySelector("#maker-clear").addEventListener("click", () => {
@@ -2170,6 +2481,7 @@ loadRemoteMappings();
 loadMakerMode();
 bindMakerModeSwitches();
 bindMappingEditors();
+bindAiMappingPanel();
 bindAdminMappingView();
 bindThemeToggle();
 bindMakerExamples();

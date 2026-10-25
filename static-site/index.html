@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>音逢｜中日谐音文化小志</title>
-  <meta name="description" content="在声音里遇见另一种语言：收集中日之间有趣的谐音、音读与文化回声。">
-  <meta property="og:title" content="音逢｜中日谐音文化小志">
-  <meta property="og:description" content="在声音里，遇见另一种语言。">
+  <title>音逢｜空耳制造器 · AI 日语配音</title>
+  <meta name="description" content="让中文，用日语的声音被听见。逐字规则转换、人工校对假名与 AI 日语语音合成，让空耳创作有据可查。">
+  <meta property="og:title" content="音逢｜空耳制造器 · AI 日语配音">
+  <meta property="og:description" content="让中文，用日语的声音被听见。规则负责拟音，AI 负责发声，你来判断是否相像。">
   <meta property="og:image" content="/og.png">
   <link rel="icon" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
@@ -26,14 +26,14 @@
 
     <section class="hero shell" id="top">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> 中日谐音文化小志</p>
-        <h1>在声音里，<br>遇见<span>另一种语言</span></h1>
-        <p class="hero-intro">汉字越过海洋，在日语里留下新的读音。我们收集那些一听便会心一笑的偶遇，也记录声音背后的文化来路。</p>
+        <p class="eyebrow"><span></span> 空耳创作 × AI 日语配音</p>
+        <h1>让中文，<br>用日语的声音<br><span>被听见</span></h1>
+        <p class="hero-intro">写下一句中文，查看逐字拟音，再让 AI 把假名读出来。规则负责转换，AI 负责发声，像不像，由你的耳朵判断。</p>
         <div class="hero-actions">
-          <a class="primary-button" href="#collection">开始探索 <span>↓</span></a>
-          <a class="text-button" href="#maker">去空耳制造器</a>
-          <button class="text-button" id="random">换一个今日发现</button>
+          <a class="primary-button" href="#maker">开始空耳创作 <span>↓</span></a>
+          <a class="text-button" href="#collection">试听诗词示例 →</a>
         </div>
+        <p class="hero-boundary">不是翻译，也不是日语教学 · 保留中文音感的声音实验</p>
       </div>
       <article class="featured-card" aria-label="今日谐音">
         <div class="paper-grain"></div>
@@ -44,10 +44,9 @@
           <div class="kana"><small>假名拟音</small><h3 id="daily-kana">ふーふん たお はりん</h3><p id="daily-romaji">fu fun tao ha rin</p></div>
         </div>
         <div class="card-footer">
-          <div><small>声音相似度</small><strong id="daily-score">92<sup>%</sup></strong></div>
+          <button class="text-button" id="random">↻ 换一句示例</button>
           <button class="sound-button speak" data-kana="ふーふん たお はりん"><span>▶</span> 听听声音</button>
         </div>
-        <span class="seal" aria-hidden="true">偶<br>然</span>
       </article>
     </section>
 
@@ -61,29 +60,31 @@
 
     <section class="project-section shell" id="project" aria-labelledby="project-title">
       <header class="project-heading">
-        <div><p class="eyebrow"><span></span> PROJECT OVERVIEW</p><h2 id="project-title">让汉字在另一种声音里被重新听见</h2></div>
+        <div><p class="eyebrow"><span></span> HOW IT WORKS</p><h2 id="project-title">从一句中文，到一段 AI 声音</h2></div>
         <p>参赛作品 · AI WEB 网页开发挑战赛</p>
       </header>
       <div class="project-capabilities">
-        <article><b>01</b><h3>逐字音感转换</h3><p>不做语义翻译，按汉字拼音与日语假名的相近音节逐字生成“空耳”表达。</p></article>
-        <article><b>02</b><h3>同音字自动复用</h3><p>同一拼音的常用汉字共用规则，让输出保持一致，并持续扩充音感字库。</p></article>
-        <article><b>03</b><h3>朗读时长自动匹配</h3><p>先实测原句与假名的朗读时长，再自动调整假名语速，保留自然的节奏感。</p></article>
-        <article><b>04</b><h3>可维护的声音词库</h3><p>管理端可编辑拼音—假名规则；普通访问者只使用生成器，避免误改原始规则。</p></article>
+        <article><b>01 / RULES</b><h3>规则负责拟音</h3><p>按汉字拼音逐字匹配假名，不做意译。忽略声调复用同音规则，让转换结果保持一致。</p></article>
+        <article><b>02 / REVIEW</b><h3>转换有据可查</h3><p>展开汉字、拼音和假名的对应依据。未知字标注待校对，不随意配音；相似程度由人判断。</p></article>
+        <article><b>03 / AI VOICE</b><h3>AI 负责发声</h3><p>通过 APIZ 调用 MiniMax，将假名合成为日语语音。默认原速，可调播放速度、拖动进度并下载原音。</p></article>
+        <article><b>04 / HUMAN</b><h3>人工校对与维护</h3><p>管理员修正规则并导出备份。词集采用已审核假名与预生成音频，重复试听无需重新合成。</p></article>
       </div>
     </section>
 
     <section class="collection shell" id="collection">
       <header class="section-heading">
         <div><p class="eyebrow"><span></span> SOUND COLLECTION</p><h2>谐音词集</h2></div>
-        <p>收录 6 个声音偶遇 · 持续生长中</p>
+        <p id="collection-total">声音词集 · 持续生长中</p>
       </header>
       <div class="filter-bar">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" placeholder="搜索中文、假名或出处…" aria-label="搜索谐音词条"></label>
-        <div class="category-tabs" aria-label="按类别筛选">
-          <button class="active" data-category="全部">全部</button><button data-category="古文">古文</button><button data-category="诗词">诗词</button><button data-category="日常">日常</button><button data-category="地名">地名</button>
-        </div>
       </div>
       <div class="entry-grid" id="entries"></div>
+      <nav class="collection-pagination" aria-label="词集分页">
+        <button type="button" id="collection-prev" aria-controls="entries">上一页</button>
+        <span id="collection-page-status" role="status" aria-live="polite"></span>
+        <button type="button" id="collection-next" aria-controls="entries">下一页</button>
+      </nav>
     </section>
 
     <section class="maker-section" id="maker">
@@ -92,7 +93,7 @@
           <p class="eyebrow"><span></span> VOICE LAB</p>
           <h2>空耳制造器</h2>
         </div>
-        <p>输入你自拟的词句（中文/日文都可以），生成 1 句对应的日文音感表达。</p>
+        <p>中文 → 逐字假名 → AI 日语配音<br>先检查转换，再点击朗读。</p>
       </div>
         <div class="shell maker-grid">
           <section class="maker-config" id="maker-config" hidden>
@@ -103,14 +104,39 @@
               </div>
               <button type="button" id="maker-reset-mappings">恢复默认</button>
             </div>
+            <div class="ai-mapping-actions">
+              <button type="button" id="rules-export">导出规则备份</button>
+              <button type="button" id="rules-import">导入恢复</button>
+              <input type="file" id="rules-file" accept=".json,application/json" hidden>
+            </div>
+            <p id="rules-backup-status" role="status">备份包含全部映射规则。导入前会检查格式和同拼音冲突，并下载当前规则备份。</p>
             <label class="maker-mapping-search" for="maker-mapping-search">
               <span>搜索已有字词对应的假名</span>
               <input id="maker-mapping-search" type="search" placeholder="输入汉字、词组、假名或发音…" autocomplete="off">
             </label>
 
+            <section class="ai-mapping-panel" aria-labelledby="ai-mapping-title">
+              <div class="ai-mapping-head">
+                <div>
+                  <p class="ai-mapping-kicker">AI MAPPING DRAFT</p>
+                  <h4 id="ai-mapping-title">生成一份待校对映射</h4>
+                  <p>调用 Gemini 生成候选假名，只会作为待校对规则显示；请检查后再保留。</p>
+                </div>
+                <span class="ai-mapping-badge">管理员</span>
+              </div>
+              <label for="ai-mapping-context">补充语境（可选）</label>
+              <input id="ai-mapping-context" type="text" maxlength="240" placeholder="例如：陶渊明《桃花源记》">
+              <div class="ai-mapping-actions">
+                <button type="button" id="ai-mapping-generate">AI 生成映射</button>
+                <span id="ai-mapping-status" role="status" aria-live="polite"></span>
+              </div>
+              <article id="ai-mapping-result" class="ai-mapping-result" hidden></article>
+            </section>
+
             <article class="mapping-card">
               <h4>拼音映射规则</h4>
-              <p class="mapping-legend"><span class="legend-same">已有生成字组</span><span class="legend-new">新增音组待校对</span></p>
+              <p class="mapping-legend"><span class="legend-same">已有映射</span><span class="legend-new">紫色：本次新增 · 待校对</span></p>
+              <p id="dictionary-coverage" class="maker-meta"></p>
               <div class="table-scroll">
                 <table>
                   <thead>
@@ -136,12 +162,8 @@
             <button class="maker-examples-refresh" id="maker-examples-refresh" type="button" aria-label="刷新快速试句">↻ 刷新</button>
             <div id="maker-example-list"></div>
           </div>
-          <div class="maker-actions mode-actions" role="group" aria-label="生成模式">
-            <label><input type="radio" id="maker-mode-syllable" name="maker-mode" checked /> 纯音节（学习版）</label>
-            <label><input type="radio" id="maker-mode-semantic" name="maker-mode" disabled /> 意译映射（已停用）</label>
-          </div>
           <div class="maker-actions">
-            <button type="button" id="maker-generate">生成对应句子</button>
+            <button type="button" id="maker-generate">转换为假名 →</button>
             <button type="button" id="maker-clear">清空</button>
           </div>
         </form>
@@ -149,7 +171,7 @@
           <div class="empty-state">
             <span>音</span>
             <h3>先写一句，你将听见它的另一种读法</h3>
-      <p>支持中文、日文及符号混合输入；每个字符都会按相似音节重写。</p>
+      <p>输入中文，查看逐字假名与转换依据。确认后再生成 AI 日语语音；未知字会先标注待校对。</p>
           </div>
         </div>
         <aside class="maker-history" id="maker-history">
@@ -187,7 +209,11 @@
     <footer class="footer shell"><a class="brand" href="#top"><span class="brand-mark">音</span><span>音逢</span></a><p>一个关于汉字、假名与声音联想的学习项目。</p><a href="#top">回到开头 ↑</a></footer>
   </main>
   <script src="/pinyin-data.js"></script>
+  <script src="/reading-dictionary.js"></script>
   <script>if(/^#(?:invite_token|recovery_token|confirmation_token)=/.test(location.hash))location.replace("/admin/"+location.hash)</script>
+  <script src="/audio-provider.js"></script>
+  <script src="/collection-audio.js"></script>
+  <script src="/rules-backup.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>
