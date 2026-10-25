@@ -2,6 +2,7 @@
 import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import {createHash,randomUUID} from 'node:crypto';
+import {toCollectionTtsText} from './collection-audio-text.mjs';
 if(process.env.ALLOW_PAID_COLLECTION!=='true')throw Error('Paid batch approval required');
 const source=await fs.readFile('static-site/app.js','utf8'),context={};
 vm.runInNewContext(source.slice(0,source.indexOf('const DEFAULT_PHONETIC_ROWS'))+'this.items=entries;',context);
@@ -12,8 +13,9 @@ await save();
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 const manifest={version:1,voice:'Japanese_CalmLady',language:'Japanese',speed:1,entries:{}};
 for(const [index,entry] of context.items.entries()){
- const text=entry.kana.replace(/\s+/g,'');
- const id=createHash('sha256').update(JSON.stringify({text,voice:manifest.voice,language:'Japanese',speed:1,model:'speech-2.8-hd'})).digest('hex').slice(0,24);
+ const idText=entry.kana.replace(/\s+/g,'');
+ const text=toCollectionTtsText(entry.kana);
+ const id=createHash('sha256').update(JSON.stringify({text:idText,voice:manifest.voice,language:'Japanese',speed:1,model:'speech-2.8-hd'})).digest('hex').slice(0,24);
  const path=dir+'/'+id+'.mp3';
  let exists=false;try{exists=(await fs.stat(path)).size>100;}catch{}
  if(!exists){
